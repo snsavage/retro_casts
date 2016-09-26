@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Scott Savage"]
   spec.email         = ["snsavage@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{RetroCasts proivdes RailsCasts.com metadata in a command-line interface.}
+  spec.description   = %q{RetroCasts provides a command-line interface for access to metdata from RailsCasts.com.  Features include...}
+  spec.homepage      = "https://github.com/snsavage/retro_casts"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
