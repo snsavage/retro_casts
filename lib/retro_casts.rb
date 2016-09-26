@@ -1,5 +1,7 @@
 require "retro_casts/version"
 
 module RetroCasts
-  # Your code goes here...
+  def self.welcome
+    puts "Welcome to RetroCasts!"
+  end
 end
