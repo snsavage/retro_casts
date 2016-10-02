@@ -34,7 +34,7 @@ module RetroCasts
     def get_page
       begin
         Nokogiri::HTML(open(url))
-      rescue
+      rescue Errno::ENOENT
         RetroCasts::NullNokogiri.new
       end
     end

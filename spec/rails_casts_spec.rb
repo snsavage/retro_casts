@@ -1,6 +1,8 @@
 require 'spec_helper'
 
-describe RetroCasts::RailsCasts do
+vcr_options = { cassette_name: "RailsCasts Root", record: :once }
+
+describe RetroCasts::RailsCasts, vcr: vcr_options do
   before (:each) do
     @klass = RetroCasts::RailsCasts
     @episode_klass = RetroCasts::Episode
