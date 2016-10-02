@@ -42,14 +42,6 @@ describe RetroCasts::RailsCasts do
         expect(nodeset).to be_a(Nokogiri::XML::NodeSet)
       end
     end
-
-    context 'with an invalid css class' do
-      it 'returns NullNokogiri' do
-        site = @klass.new(@url)
-        nodeset = site.send(:get_nodeset, filter: ".invalid-class")
-        expect(nodeset).to be_a(RetroCasts::NullNokogiri)
-      end
-    end
   end
 
   describe '#new' do
@@ -76,6 +68,15 @@ describe RetroCasts::RailsCasts do
 
     it 'returns an array of Episodes' do
       expect(site.send(:parse_episodes)).to all(be_a(@episode_klass))
+    end
+
+    context 'with an invalid url' do
+      let(:invalid_site) {
+        RetroCasts::RailsCasts.new('')
+      }
+
+      it {expect(invalid_site.page).to be_a(RetroCasts::NullNokogiri)}
+      it {expect(invalid_site.episodes).to eq([])}
     end
   end
 
@@ -114,17 +115,19 @@ describe RetroCasts::RailsCasts do
     end
   end
 
-  # describe 'Episode' do
-  #   describe 'episode attribute getters' do
-  #     let(:episode) {RetroCasts::RailsCasts.new('http://www.railscasts.com')}
+  describe 'Episode' do
+    describe 'episode attribute getters' do
+      let(:episode) {
+        RetroCasts::RailsCasts.new(@url).episodes.first
+      }
 
-  #     it {expect(episode.title).to eq("Foundation")}
-  #     it {expect(episode.number).to eq("Episode #417")}
-  #     it {expect(episode.date).to eq("Jun 16, 2013")}
-  #     it {expect(episode.length).to eq("(11 minutes)")}
-  #     it {expect(episode.link).to eq("episode/417-foundation")}
-  #     it {expect(episode.description).to include("ZURB's Foundation is a front-end for quickly building applications and prototypes. It is similar to Twitter Bootstrap but uses Sass instead of LESS. Here you will learn the basics of the grid system, navigation, tooltips and more.")}
-  #   end
-  # end
+      it {expect(episode.title).to eq("Foundation")}
+      it {expect(episode.number).to eq("Episode #417")}
+      it {expect(episode.date).to eq("Jun 16, 2013")}
+      it {expect(episode.length).to eq("(11 minutes)")}
+      it {expect(episode.link).to eq("/episodes/417-foundation")}
+      it {expect(episode.description).to include("ZURB's Foundation is a front-end for quickly building applications and prototypes. It is similar to Twitter Bootstrap but uses Sass instead of LESS. Here you will learn the basics of the grid system, navigation, tooltips and more.")}
+    end
+  end
 end
 

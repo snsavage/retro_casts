@@ -11,6 +11,10 @@ module RetroCasts
     def css(*)
       []
     end
+
+    def collect
+      NullNokogiri.new
+    end
   end
 
   class RailsCasts
@@ -23,7 +27,7 @@ module RetroCasts
       @url = url
       @page = get_page
       @nodeset = get_nodeset(page: page, filter: NODE_SET_FILTER)
-      @episodes = []
+      @episodes = parse_episodes
     end
 
     private
@@ -37,11 +41,11 @@ module RetroCasts
 
     def get_nodeset(page: self.page, filter: NODE_SET_FILTER)
       nodeset = page.css(filter)
-      if nodeset.empty?
-        NullNokogiri.new
-      else
-        nodeset
-      end
+      # if nodeset.empty?
+      #   NullNokogiri.new
+      # else
+      #   nodeset
+      # end
     end
 
     def parse_episodes
@@ -54,9 +58,10 @@ module RetroCasts
       episode = Episode.new
       episode.title = node.css(".main h2 a").text
       episode.number = node.css(".number").text
-      episode.date = node.css(".pulished_at").text
+      episode.date = node.css(".published_at").text
       episode.length = node.css(".stats").text
       episode.link = node.css(".screenshot a").first.attributes["href"].value
+      episode.description = node.css(".description").text
       return episode
     end
   end
