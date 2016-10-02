@@ -1,8 +1,50 @@
 require 'spec_helper'
 
-vcr_options = { cassette_name: "RailsCasts Root", record: :once }
+vcr_rails_casts = { cassette_name: "RailsCasts Root", record: :once }
+vcr_web_site = { cassette_name: "RailsCasts Root", record: :once }
 
-describe RetroCasts::RailsCasts, vcr: vcr_options do
+describe RetroCasts::Website, vcr: vcr_web_site do
+  let(:klass) { RetroCasts::Website }
+
+  describe '.get_list' do
+    context 'when given a valid url' do
+      let(:url) { 'http://www.railscasts.com' }
+
+      context 'and a valid filter' do
+        it 'returns a Nokogiri::XML::NodeSet' do
+          site = klass.get_list(url: url, filter: '.episode')
+          expect(site).to be_a(Nokogiri::XML::NodeSet)
+        end
+      end
+
+      context 'and an invalid filter' do
+        it 'returns a Nullwebsite' do
+          site = klass.get_list(url: url, filter: '')
+          expect(site).to be_a(RetroCasts::NullWebsite)
+        end
+      end
+    end
+
+    context 'when given an invalid url' do
+      it 'returns a NullWebsite' do
+        site = klass.get_list(url: '', filter: '')
+        expect(site).to be_a(RetroCasts::NullWebsite)
+      end
+    end
+  end
+end
+
+
+describe RetroCasts::NullWebsite do
+  let(:klass) { RetroCasts::NullWebsite }
+  describe '.empty?' do
+    it 'returns true' do
+      expect(klass.new.empty?).to be true
+    end
+  end
+end
+
+describe RetroCasts::RailsCasts, vcr: vcr_rails_casts do
   before (:each) do
     @klass = RetroCasts::RailsCasts
     @episode_klass = RetroCasts::Episode
