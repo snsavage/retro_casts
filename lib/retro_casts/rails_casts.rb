@@ -1,6 +1,6 @@
 module RetroCasts
   module Website
-    def self.get_list(url:, filter:)
+    def self.get_list(url, filter)
       site = open_url(url)
       css(site, filter)
     end
@@ -33,52 +33,19 @@ module RetroCasts
     attr_accessor :title, :number, :date, :length, :link, :description
   end
 
-  class NullNokogiri
-    def empty?
-      true
-    end
-
-    def css(*)
-      []
-    end
-
-    def collect
-      NullNokogiri.new
-    end
-  end
-
   class RailsCasts
-    HOST = 'http://www.railscasts.com/'
-    NODE_SET_FILTER = '.episode'
+    attr_reader :url, :filter, :episodes
 
-    attr_reader :url, :page, :nodeset, :episodes
-
-    def initialize(url)
+    def initialize(url = 'http://www.railscasts.com', filter = '.episode')
       @url = url
-      @page = get_page
-      @nodeset = get_nodeset(page: page, filter: NODE_SET_FILTER)
-      @episodes = parse_episodes
+      @filter = filter
+
+      nodeset = RetroCasts::Website.get_list(url, '.episode')
+      @episodes = parse_episodes(nodeset)
     end
 
     private
-    def get_page
-      begin
-        Nokogiri::HTML(open(url))
-      rescue Errno::ENOENT
-        RetroCasts::NullNokogiri.new
-      end
-    end
-
-    def get_nodeset(page: self.page, filter: NODE_SET_FILTER)
-      nodeset = page.css(filter)
-      # if nodeset.empty?
-      #   NullNokogiri.new
-      # else
-      #   nodeset
-      # end
-    end
-
-    def parse_episodes
+    def parse_episodes(nodeset)
       @episdoes = nodeset.collect do |node|
         create_episode(node)
       end
