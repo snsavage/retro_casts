@@ -24,7 +24,6 @@ describe RetroCasts::CLI, vcr: vcr_options do
 
     context 'with an empty list of episodes' do
       it 'should display No Episodes Found' do
-        skip
         expect(klass).to receive(:display).with(/No Episodes Found/)
         episodes = RetroCasts::RailsCasts.new('','').episodes
         RetroCasts::CLI.episode_list(episodes)
@@ -39,13 +38,13 @@ describe RetroCasts::CLI, vcr: vcr_options do
           .to output("\n")
           .to_stdout
       end
+    end
 
-      context 'with a message' do
-        it 'puts message' do
-          expect { RetroCasts::CLI.display('message') }
-            .to output("message\n")
-            .to_stdout
-        end
+    context 'with a message' do
+      it 'puts message' do
+        expect { RetroCasts::CLI.display('message') }
+        .to output("message\n")
+        .to_stdout
       end
     end
   end
