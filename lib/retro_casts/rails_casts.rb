@@ -6,13 +6,13 @@ module RetroCasts
       @url = url
       @filter = filter
 
-      nodeset = RetroCasts::Website.get_list(url, '.episode')
+      nodeset = RetroCasts::Website.get_list(url, filter)
       @episodes = parse_episodes(nodeset)
     end
 
     private
     def parse_episodes(nodeset)
-      @episdoes = nodeset.collect do |node|
+      nodeset.collect do |node|
         create_episode(node)
       end
     end
