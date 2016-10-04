@@ -2,5 +2,5 @@
 
 require 'retro_casts'
 
-RetroCasts.welcome
+RetroCasts.start
 
