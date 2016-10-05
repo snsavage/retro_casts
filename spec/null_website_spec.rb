@@ -20,7 +20,7 @@ describe RetroCasts::NullWebsite do
       expect(RetroCasts::CLI)
         .to receive(:display)
         .with(/No Episodes Found/)
-      RetroCasts::CLI.episode_list(klass.new)
+      RetroCasts::CLI.list_episodes(klass.new)
     end
   end
 end
