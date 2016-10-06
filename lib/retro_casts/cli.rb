@@ -21,6 +21,12 @@ module RetroCasts
       end
     end
 
+    def self.show_episode_detail(episode)
+      [:title, :number, :date, :length, :description, :link].each do |attribute|
+        display("#{attribute.to_s.capitalize}: #{episode.send(attribute)}")
+      end
+    end
+
     def self.display(message = "")
       puts message
     end

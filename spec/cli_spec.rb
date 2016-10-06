@@ -54,6 +54,23 @@ describe RetroCasts::CLI, vcr: vcr_options do
     end
   end
 
+  describe '.show_episode_detail' do
+    context 'with an episode, it displays episode details' do
+      let(:episode) {episodes.first}
+
+      it 'calls display for each episode attribute' do
+        expect(klass).to receive(:display).with("Title: #{episode.title}")
+        expect(klass).to receive(:display).with("Number: #{episode.number}")
+        expect(klass).to receive(:display).with("Date: #{episode.date}")
+        expect(klass).to receive(:display).with("Length: #{episode.length}")
+        expect(klass).to receive(:display).with("Link: #{episode.link}")
+        expect(klass).to receive(:display).with("Description: #{episode.description}")
+
+        klass.show_episode_detail(episode)
+      end
+    end
+  end
+
   describe '.display' do
     context 'with no message' do
       it 'puts an empty string' do
