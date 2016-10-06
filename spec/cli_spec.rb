@@ -71,6 +71,12 @@ describe RetroCasts::CLI, vcr: vcr_options do
     end
   end
 
+  describe '.valid_episode_number' do
+    it 'checks for a valid episode number' do
+      skip
+    end
+  end
+
   describe '.display' do
     context 'with no message' do
       it 'puts an empty string' do
