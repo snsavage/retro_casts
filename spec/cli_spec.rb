@@ -54,6 +54,20 @@ describe RetroCasts::CLI, vcr: vcr_options do
     end
   end
 
+  describe '.valid_episode_number' do
+    context 'when provided a valid number it returns true' do
+      it { expect(klass.valid_episode_number("1", episodes)).to be true }
+    end
+
+    context 'when provided an invalid number it returns false' do
+      it { expect(klass.valid_episode_number("100", episodes)).to be false }
+      it { expect(klass.valid_episode_number("-1", episodes)).to be false }
+      it { expect(klass.valid_episode_number("0", episodes)).to be false }
+      it { expect(klass.valid_episode_number("exit", episodes)).to be false }
+    end
+  end
+
+
   describe '.show_episode_detail' do
     context 'with an episode, it displays episode details' do
       let(:episode) {episodes.first}
@@ -68,12 +82,6 @@ describe RetroCasts::CLI, vcr: vcr_options do
 
         klass.show_episode_detail(episode)
       end
-    end
-  end
-
-  describe '.valid_episode_number' do
-    it 'checks for a valid episode number' do
-      skip
     end
   end
 
