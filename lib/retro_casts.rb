@@ -14,36 +14,47 @@ module RetroCasts
   def self.start
     puts ARGV.first
     CLI.welcome
-    list
-  end
 
-  def self.list(episodes = nil)
+    message = ""
+
     loop do
-      episodes ||= RetroCasts::RailsCasts.new.episodes
+      site ||= RetroCasts::RailsCasts.new
+      episodes ||= site.episodes
       CLI.list_episodes(episodes)
 
-      puts "Please select an episode to view: "
-      print ">"
+      puts "*** #{message} ***" unless message == ""
+      message = ""
+
+      puts "Please select an option..."
       input = gets.chomp
 
       if CLI.valid_episode_number(input, episodes)
-        CLI.show_episode_detail(episodes[input.to_i - 1])
-        detail(episodes)
-      elsif input == "exit"
-        break
+        loop do
+          CLI.show_episode_detail(episodes[input.to_i - 1])
+
+          puts "Type 'exit' to go back or 'open' to open the episode in your browser."
+          print ">"
+
+          case gets.chomp.downcase
+          when "exit"
+            break
+          when "open"
+            `open #{site.url}/#{episodes[input.to_i - 1].link}`
+          else
+            puts "Please choose 'exit' or 'open'."
+          end
+        end
+      else
+        case input.downcase
+        when "search"
+          puts "Time to search."
+
+        when "exit"
+          break
+        else
+          message = "#{input} is not a valid selection."
+        end
       end
-    end
-  end
-
-  def self.detail(episodes)
-    puts "Type back to return to list:"
-    print ">"
-    input = gets.chomp
-
-    if input.downcase == "back"
-      list(episodes)
-    else
-      detail(episodes)
     end
   end
 end
