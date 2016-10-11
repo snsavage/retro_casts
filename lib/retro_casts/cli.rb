@@ -21,10 +21,14 @@ module RetroCasts
       end
     end
 
-    def self.valid_episode_number(input, episodes)
+    def self.valid_episode_number(input, length)
       begin
         Integer(input)
-        input.to_i.between?(1, episodes.length)
+        if input.to_i.between?(1, length)
+          input.to_i - 1
+        else
+          false
+        end
       rescue
         false
       end

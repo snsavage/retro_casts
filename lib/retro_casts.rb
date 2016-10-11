@@ -26,11 +26,12 @@ module RetroCasts
       message = ""
 
       puts "Please select an option..."
-      input = gets.chomp
+      command, argument, other = gets.chomp.split(" ")
 
-      if CLI.valid_episode_number(input, episodes)
+      if episode_number = CLI.valid_episode_number(command, episodes.length)
         loop do
-          CLI.show_episode_detail(episodes[input.to_i - 1])
+          episode = episodes[episode_number]
+          CLI.show_episode_detail(episode)
 
           puts "Type 'exit' to go back or 'open' to open the episode in your browser."
           print ">"
@@ -39,20 +40,20 @@ module RetroCasts
           when "exit"
             break
           when "open"
-            `open #{site.url}/#{episodes[input.to_i - 1].link}`
+            `open #{site.url}/#{episode.link}`
           else
             puts "Please choose 'exit' or 'open'."
           end
         end
       else
-        case input.downcase
+        case command.downcase
         when "search"
           puts "Time to search."
 
         when "exit"
           break
         else
-          message = "#{input} is not a valid selection."
+          message = "#{command} is not a valid selection."
         end
       end
     end

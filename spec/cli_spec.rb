@@ -62,8 +62,8 @@ describe RetroCasts::CLI, vcr: vcr_options do
   end
 
   describe '.valid_episode_number' do
-    context 'when provided a valid number it returns true' do
-      it { expect(klass.valid_episode_number("1", episodes)).to be true }
+    context 'when provided a valid number it returns an episode number' do
+      it { expect(klass.valid_episode_number("1", episodes.length)).to eq(0) }
     end
 
     context 'when provided an invalid number it returns false' do
