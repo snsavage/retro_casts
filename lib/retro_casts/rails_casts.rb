@@ -14,6 +14,14 @@ module RetroCasts
       number > 0 && number <= episodes.length
     end
 
+    def episode(number)
+      if episode?(number)
+        episodes[number - 1]
+      else
+        nil
+      end
+    end
+
     private
     def parse_episodes(nodeset)
       nodeset.collect do |node|

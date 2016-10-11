@@ -64,5 +64,14 @@ describe RetroCasts::RailsCasts, vcr: vcr_options do
     end
   end
     
+  describe '#episode' do
+    it 'returns an episode based on human readable indexing' do
+      expect(site.episode(1)).to eq(site.episodes.first)
+    end
+
+    it 'returns nil for an invalid episode selection' do
+      expect(site.episode(0)).to be nil
+    end
+  end
 end
 

@@ -28,9 +28,9 @@ module RetroCasts
       puts "Please select an option..."
       command, argument, other = gets.chomp.split(" ")
 
-      if episode_number = CLI.valid_episode_number(command, episodes.length)
+      if integer?(command) && site.episode?(command)
         loop do
-          episode = episodes[episode_number]
+          episode = site.episode(command)
           CLI.show_episode_detail(episode)
 
           puts "Type 'exit' to go back or 'open' to open the episode in your browser."
@@ -56,6 +56,16 @@ module RetroCasts
           message = "#{command} is not a valid selection."
         end
       end
+    end
+  end
+
+  private
+  def self.integer?(number)
+    begin
+      Integer(number)
+      true
+    rescue
+      false
     end
   end
 end
