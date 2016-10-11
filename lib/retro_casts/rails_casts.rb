@@ -10,6 +10,10 @@ module RetroCasts
       @episodes = parse_episodes(nodeset)
     end
 
+    def episode?(number)
+      number > 0 && number <= episodes.length
+    end
+
     private
     def parse_episodes(nodeset)
       nodeset.collect do |node|

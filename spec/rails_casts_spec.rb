@@ -49,5 +49,20 @@ describe RetroCasts::RailsCasts, vcr: vcr_options do
       expect(site.episodes).to all(be_a(episode_klass))
     end
   end
+
+  describe '#episode?' do
+    context 'when provided with a valid number returns true' do
+      it { expect(site.episode?(1)).to be true }
+      it { expect(site.episode?(10)).to be true }
+    end
+
+    context 'when provided with an invalid number returns false' do
+      it { expect(site.episode?(0)).to be false }
+      it { expect(site.episode?(11)).to be false }
+      it { expect(site.episode?(-1)).to be false }
+      it { expect(site.episode?(100)).to be false }
+    end
+  end
+    
 end
 
