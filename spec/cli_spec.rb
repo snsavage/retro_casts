@@ -13,12 +13,19 @@ describe RetroCasts::CLI, vcr: vcr_options do
   end
 
   describe '.list_episodes' do
-    let(:regex) { /\d+.[\w\s\(\)]+-\s\w{3}\s\d{2},\s\d{4}/ }
+    let(:regex) { /\d+.[\w\s\(\)]+-\s\w{3}\s\d+,\s\d{4}/ }
 
     context 'with a list of episodes' do
       it 'should display a list number and episode title' do
         expect(klass).to receive(:display).with(regex).exactly(10).times
         klass.list_episodes(episodes)
+      end
+    end
+
+    context 'the first episode' do
+      it 'should display' do
+        expect(klass).to receive(:display).with("1. Foundation - Jun 16, 2013").at_least(1).times
+        klass.list_episodes(episodes.shift(1))
       end
     end
 
