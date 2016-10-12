@@ -29,7 +29,7 @@ describe RetroCasts::RailsCasts, vcr: vcr_default do
       end
 
       it 'sets a page attribute' do
-        expect(site.page).to be nil
+        expect(site.page).to eq 1
       end
       
       it 'sets a search attribute' do

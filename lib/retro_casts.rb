@@ -42,7 +42,7 @@ module RetroCasts
           when "exit"
             break
           when "open"
-            `open #{site.url}/#{episode.link}`
+            `open #{site.host}/#{episode.link}`
           else
             puts "Please choose 'exit' or 'open'."
             print ">"
@@ -54,7 +54,15 @@ module RetroCasts
         case command.downcase
         when "search"
           puts "Searching for \"#{argument}\"..."
-          site.search(argument)
+          site = RetroCasts::RailsCasts.new(search: argument)
+        when "next"
+          puts "Opening page #{site.page + 1}..."
+          site = RetroCasts::RailsCasts.new(search: site.search,
+                                            page: site.page + 1)
+        when "back"
+          puts "Opening page #{site.page - 1}..."
+          site = RetroCasts::RailsCasts.new(search: site.search,
+                                            page: site.page - 1)
         when "exit"
           break
         else

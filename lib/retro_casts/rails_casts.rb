@@ -4,7 +4,7 @@ module RetroCasts
 
     def initialize(host: 'http://www.railscasts.com',
                    filter: '.episode',
-                   page: nil,
+                   page: 1,
                    search: nil)
 
       @host = host
@@ -45,7 +45,7 @@ module RetroCasts
       attributes = {}
       if search
         attributes[:search] = search
-      elsif page
+      elsif page != 1
         attributes[:page] = page
       end
 
