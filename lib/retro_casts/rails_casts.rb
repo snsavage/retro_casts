@@ -1,14 +1,18 @@
 module RetroCasts
   class RailsCasts
-    attr_reader :url, :filter, :episodes
+    attr_reader :host, :filter, :episodes, :page, :search
 
-    def initialize(url = 'http://www.railscasts.com', filter = '.episode')
-      @url = url
+    def initialize(host: 'http://www.railscasts.com',
+                   filter: '.episode',
+                   page: 1,
+                   search: "")
+
+      @host = host
       @filter = filter
+      @page = page
+      @search = search
 
-      @current_url = url
-
-      nodeset = RetroCasts::Website.get_list(url, filter)
+      nodeset = RetroCasts::Website.get_list(host, filter)
       @episodes = parse_episodes(nodeset)
     end
 
@@ -24,15 +28,15 @@ module RetroCasts
       end
     end
 
-    def search(search_string)
-      encoded_search_string = URI.encode_www_form(search: search_string)
-      search_url = "#{url}/episodes?utf8=%E2%9C%93&#{encoded_search_string}"
+    # def search(search_string)
+    #   encoded_search_string = URI.encode_www_form(search: search_string)
+    #   search_url = "#{url}/episodes?utf8=%E2%9C%93&#{encoded_search_string}"
 
-      @current_url = search_url
+    #   @current_url = search_url
 
-      nodeset = RetroCasts::Website.get_list(search_url, filter)
-      @episodes = parse_episodes(nodeset)
-    end
+    #   nodeset = RetroCasts::Website.get_list(search_url, filter)
+    #   @episodes = parse_episodes(nodeset)
+    # end
 
     private
     def parse_episodes(nodeset)

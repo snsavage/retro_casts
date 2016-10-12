@@ -7,32 +7,60 @@ describe RetroCasts::RailsCasts, vcr: vcr_default do
   let(:klass) { RetroCasts::RailsCasts }
   let(:episode_klass) { RetroCasts::Episode }
   let(:site) { klass.new }
-  let(:url) { 'http://www.railscasts.com' }
+  let(:host) { 'http://www.railscasts.com' }
   let(:filter) { '.episode' }
+  let(:page) { 1 }
+  let(:search) { '' }
 
   describe '#new' do
-    context 'with a valid url' do
+    context 'with a valid host' do
       it 'accepts two arguments' do
-        expect(klass).to respond_to(:new).with(2).arguments
+        expect(klass).to respond_to(:new).with(4).arguments
         site
       end
 
-      it 'sets a url attribute' do
-        expect(site.url).to eq(url)
+      it 'sets a host attribute' do
+        expect(site.host).to eq(host)
       end
 
       it 'sets a filter attribute' do
         expect(site.filter).to eq(filter)
       end
 
-      it 'returns an array of Episodes' do
+      it 'sets a page attribute' do
+        expect(site.page).to eq(page)
+      end
+      
+      it 'sets a search attribute' do
+        expect(site.search).to eq(search)
+      end
+
+      it 'sets an array of Episodes' do
         expect(site.episodes).to all(be_a(episode_klass))
+      end
+      
+      it 'returns an instance of RetroCasts::RailsCasts' do
+        expect(klass.new).to be_an_instance_of(RetroCasts::RailsCasts)
+      end
+
+      context 'given url paramters' do
+        it 'sets a basic url' do
+          skip
+        end
+
+        it 'sets a search url' do
+          skip
+        end
+
+        it 'sets a page url' do
+          skip
+        end
       end
     end
 
-    context 'with an invalid url' do
+    context 'with an invalid host' do
       let(:invalid_site) {
-        klass.new('')
+        klass.new(host: '')
       }
 
       it 'returns an empty array' do
@@ -75,13 +103,13 @@ describe RetroCasts::RailsCasts, vcr: vcr_default do
     end
   end
 
-  describe '#search', vcr: vcr_search do
-    it 'returns a new list of episodes based on the search term' do
-      default_site = site
-      site.search("foundation")
-      expect(site.episodes.first).to eq(default_site.episodes.first)
-      expect(site.episodes.length).to eq(1)
-    end
-  end
+  # describe '#search', vcr: vcr_search do
+  #   it 'returns a new list of episodes based on the search term' do
+  #     default_site = site
+  #     site.search("foundation")
+  #     expect(site.episodes.first).to eq(default_site.episodes.first)
+  #     expect(site.episodes.length).to eq(1)
+  #   end
+  # end
 end
 

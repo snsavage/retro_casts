@@ -32,7 +32,7 @@ describe RetroCasts::CLI, vcr: vcr_options do
     context 'with an empty list of episodes' do
       it 'should display No Episodes Found' do
         expect(klass).to receive(:display).with(/No Episodes Found/)
-        episodes = RetroCasts::RailsCasts.new('','').episodes
+        episodes = RetroCasts::RailsCasts.new(host: '', filter: '').episodes
         klass.list_episodes(episodes)
       end
     end
