@@ -30,15 +30,9 @@ module RetroCasts
       end
     end
 
-    # def search(search_string)
-    #   encoded_search_string = URI.encode_www_form(search: search_string)
-    #   search_url = "#{url}/episodes?utf8=%E2%9C%93&#{encoded_search_string}"
-
-    #   @current_url = search_url
-
-    #   nodeset = RetroCasts::Website.get_list(search_url, filter)
-    #   @episodes = parse_episodes(nodeset)
-    # end
+    def get_search(search_term)
+      RetroCasts::RailsCasts.new(search: search_term)
+    end
 
     private
     def build_url

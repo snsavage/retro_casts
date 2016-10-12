@@ -108,13 +108,20 @@ describe RetroCasts::RailsCasts, vcr: vcr_default do
     end
   end
 
-  # describe '#search', vcr: vcr_search do
-  #   it 'returns a new list of episodes based on the search term' do
-  #     default_site = site
-  #     site.search("foundation")
-  #     expect(site.episodes.first).to eq(default_site.episodes.first)
-  #     expect(site.episodes.length).to eq(1)
-  #   end
-  # end
+  describe '#search' do
+    let(:search_site) {
+      VCR.use_cassette("RailsCasts Search") do
+        site.get_search("model caching")
+      end
+    }
+
+    it 'returns a new instance of RailsCasts based on search term' do
+      expect(search_site).to be_an_instance_of(klass)
+    end
+
+    it 'search site has a list of 9 episodes' do
+      expect(search_site.episodes.length).to eq 4
+    end
+  end
 end
 
