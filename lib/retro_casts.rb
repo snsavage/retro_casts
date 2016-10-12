@@ -52,17 +52,18 @@ module RetroCasts
         message = "Enter is not a valid selection."
       else
         case command.downcase
+        when "home"
+          puts "Going back to the homepage..."
+          site = site.get_search(nil)
         when "search"
           puts "Searching for \"#{argument}\"..."
-          site = RetroCasts::RailsCasts.new(search: argument)
+          site = site.get_search(argument)
         when "next"
           puts "Opening page #{site.page + 1}..."
-          site = RetroCasts::RailsCasts.new(search: site.search,
-                                            page: site.page + 1)
+          site = site.next_page
         when "back"
           puts "Opening page #{site.page - 1}..."
-          site = RetroCasts::RailsCasts.new(search: site.search,
-                                            page: site.page - 1)
+          site = site.prev_page
         when "exit"
           break
         else

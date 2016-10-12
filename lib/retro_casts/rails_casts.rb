@@ -34,14 +34,26 @@ module RetroCasts
       RetroCasts::RailsCasts.new(search: search_term)
     end
 
+    def next_page
+      RetroCasts::RailsCasts.new(search: search,
+                                 page: page + 1)
+    end
+
+    def prev_page
+      if page > 1
+        RetroCasts::RailsCasts.new(search: search,
+                                   page: page - 1)
+      else
+        self
+      end
+    end
+
     private
     def build_url
       attributes = {}
-      if search
-        attributes[:search] = search
-      elsif page != 1
-        attributes[:page] = page
-      end
+
+      attributes[:search] = search if search
+      attributes[:page] = page if page != 1
 
       if !attributes.empty?
         query = URI.encode_www_form(attributes)

@@ -3,6 +3,7 @@ require 'spec_helper'
 vcr_default = { cassette_name: "RailsCasts Root", record: :once }
 vcr_search = { cassette_name: "RailsCasts Search", record: :once }
 vcr_page = { cassette_name: "RailsCasts Page", record: :once }
+vcr_page_search = { cassette_name: "RailsCasts Page & Search", record: :once }
 
 describe RetroCasts::RailsCasts, vcr: vcr_default do
   let(:klass) { RetroCasts::RailsCasts }
@@ -59,6 +60,10 @@ describe RetroCasts::RailsCasts, vcr: vcr_default do
 
         it 'sets a page url', vcr: vcr_page do
           expect(klass.new(page: 2).url).to eq("http://www.railscasts.com/?page=2")
+        end
+        
+        it 'sets a page and search url', vcr: vcr_page_search do
+          expect(klass.new(page: 2, search: "production").url).to eq("http://www.railscasts.com/episodes?search=production&page=2")
         end
       end
     end
