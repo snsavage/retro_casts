@@ -12,11 +12,15 @@ require 'pry'
 
 module RetroCasts
   def self.start
-    puts ARGV.first
     CLI.welcome
 
+    if !ARGV.empty?
+      site = RetroCasts::RailsCasts.new(search: ARGV.join(" "))
+    else
+      site ||= RetroCasts::RailsCasts.new
+    end
+
     message = ""
-    site ||= RetroCasts::RailsCasts.new
 
     loop do
       CLI.list_episodes(site.episodes)
@@ -26,7 +30,7 @@ module RetroCasts
 
       puts "Please select an option..."
       print ">"
-      input = gets.chomp.split(" ")
+      input = $stdin.gets.chomp.split(" ")
       command = input.shift
       argument = input.join(" ")
 
@@ -38,7 +42,7 @@ module RetroCasts
           puts "Type 'exit' to go back or 'open' to open the episode in your browser."
           print ">"
 
-          case gets.chomp.downcase
+          case $stdin.gets.chomp.downcase
           when "exit"
             break
           when "open"
