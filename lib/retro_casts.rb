@@ -16,21 +16,23 @@ module RetroCasts
     CLI.welcome
 
     message = ""
+    site ||= RetroCasts::RailsCasts.new
 
     loop do
-      site ||= RetroCasts::RailsCasts.new
-      episodes ||= site.episodes
-      CLI.list_episodes(episodes)
+      CLI.list_episodes(site.episodes)
 
       puts "*** #{message} ***" unless message == ""
       message = ""
 
       puts "Please select an option..."
-      command, argument, other = gets.chomp.split(" ")
+      print ">"
+      input = gets.chomp.split(" ")
+      command = input.shift
+      argument = input.join(" ")
 
-      if integer?(command) && site.episode?(command)
+      if integer?(command) && site.episode?(command.to_i)
         loop do
-          episode = site.episode(command)
+          episode = site.episode(command.to_i)
           CLI.show_episode_detail(episode)
 
           puts "Type 'exit' to go back or 'open' to open the episode in your browser."
@@ -43,13 +45,16 @@ module RetroCasts
             `open #{site.url}/#{episode.link}`
           else
             puts "Please choose 'exit' or 'open'."
+            print ">"
           end
         end
+      elsif command == nil
+        message = "Enter is not a valid selection."
       else
         case command.downcase
         when "search"
-          puts "Time to search."
-
+          puts "Searching for \"#{argument}\"..."
+          site.search(argument)
         when "exit"
           break
         else

@@ -1,8 +1,9 @@
 require 'spec_helper'
 
-vcr_options = { cassette_name: "RailsCasts Root", record: :once }
+vcr_default = { cassette_name: "RailsCasts Root", record: :once }
+vcr_search = { cassette_name: "RailsCasts Search for Foundation", record: :once }
 
-describe RetroCasts::RailsCasts, vcr: vcr_options do
+describe RetroCasts::RailsCasts, vcr: vcr_default do
   let(:klass) { RetroCasts::RailsCasts }
   let(:episode_klass) { RetroCasts::Episode }
   let(:site) { klass.new }
@@ -71,6 +72,15 @@ describe RetroCasts::RailsCasts, vcr: vcr_options do
 
     it 'returns nil for an invalid episode selection' do
       expect(site.episode(0)).to be nil
+    end
+  end
+
+  describe '#search', vcr: vcr_search do
+    it 'returns a new list of episodes based on the search term' do
+      default_site = site
+      site.search("foundation")
+      expect(site.episodes.first).to eq(default_site.episodes.first)
+      expect(site.episodes.length).to eq(1)
     end
   end
 end

@@ -6,6 +6,8 @@ module RetroCasts
       @url = url
       @filter = filter
 
+      @current_url = url
+
       nodeset = RetroCasts::Website.get_list(url, filter)
       @episodes = parse_episodes(nodeset)
     end
@@ -20,6 +22,16 @@ module RetroCasts
       else
         nil
       end
+    end
+
+    def search(search_string)
+      encoded_search_string = URI.encode_www_form(search: search_string)
+      search_url = "#{url}/episodes?utf8=%E2%9C%93&#{encoded_search_string}"
+
+      @current_url = search_url
+
+      nodeset = RetroCasts::Website.get_list(search_url, filter)
+      @episodes = parse_episodes(nodeset)
     end
 
     private
