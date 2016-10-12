@@ -1,0 +1,315 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.railscasts.com/episodes?page=2&search=production
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Server:
+      - nginx/1.4.7
+      Date:
+      - Wed, 12 Oct 2016 22:30:54 GMT
+      Content-Type:
+      - text/html
+      Content-Length:
+      - '184'
+      Connection:
+      - keep-alive
+      Location:
+      - http://railscasts.com/episodes?search=production&page=2
+    body:
+      encoding: UTF-8
+      string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body
+        bgcolor=\"white\">\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx/1.4.7</center>\r\n</body>\r\n</html>\r\n"
+    http_version: 
+  recorded_at: Wed, 12 Oct 2016 22:30:54 GMT
+- request:
+    method: get
+    uri: http://railscasts.com/episodes?page=2&search=production
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.4.7
+      Date:
+      - Wed, 12 Oct 2016 22:30:56 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _railscasts_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWI2NjU2NGFkNDhlM2M3ZjM1ZTc1MmQ2Yzk5ODA0NWM5BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMURKTUZCTkVPUXVMcXFHUGdERThOMmJVc04xMVRISlNXQ0lBL2xFaWE5K0U9BjsARg%3D%3D--a7362c55a7ae8ee73358d204469bf82d61d38150;
+        path=/; HttpOnly
+      X-Request-Id:
+      - 7de48b32df4f3e8c6e82cf89942f62da
+      X-Runtime:
+      - '0.954251'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: ASCII-8BIT
+      string: "<!DOCTYPE html>\n<html>\n<head>\n\t<meta http-equiv=\"Content-Type\"
+        content=\"text/html; charset=utf-8\" />\n    <title>Ruby on Rails Screencasts
+        - RailsCasts</title>\n    <meta name=\"description\" content=\"Short Ruby
+        on Rails screencasts containing tips, tricks and tutorials. Great for both
+        novice and experienced web developers.\" />\n    <meta name=\"keywords\" content=\"rails,
+        ruby on rails, screencasts, railscast, railscasts, tips, tricks, tutorials,
+        training, podcasts, programming\" />\n    <link rel=\"alternate\" type=\"application/rss+xml\"
+        title=\"Episodes RSS\" href=\"http://feeds.feedburner.com/railscasts\" />\n
+        \   <link href=\"/assets/application-f33052609391fcb2333fb8c560544e00.css\"
+        media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />\n    <script src=\"http://cdn.sublimevideo.net/js/3s7oes9q.js\"
+        type=\"text/javascript\"></script>\n    <script src=\"/assets/application-fe460ed6c034ee8c95a2a78f52d7a5d9.js\"
+        type=\"text/javascript\"></script>\n    <meta content=\"authenticity_token\"
+        name=\"csrf-param\" />\n<meta content=\"DJMFBNEOQuLqqGPgDE8N2bUsN11THJSWCIA/lEia9+E=\"
+        name=\"csrf-token\" />\n    \n  </head>\n  <body>\n    <div id=\"top\">\n
+        \     <div class=\"logo\"><a href=\"/\"><img alt=\"RailsCasts - Ruby on Rails
+        Screencasts\" height=\"56\" src=\"/assets/railscasts_logo-7101a7cd0a48292a0c07276981855edb.png\"
+        width=\"423\" /></a></div>\n      <div class=\"user_nav\">\n          <a href=\"/login?return_to=http%3A%2F%2Frailscasts.com%2Fepisodes%3Fsearch%3Dproduction%26page%3D2\">Sign
+        in through GitHub</a>\n      </div>\n      <ul class=\"subscribe horizontal\">\n
+        \       <li>\n          <a href=\"http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=218282043\"><img
+        alt=\"Itunes\" height=\"34\" src=\"/assets/icons/itunes-ea9253b9b183d9788bef2cdfe326f38e.png\"
+        width=\"34\" /></a>\n          <span class=\"name\">watch on iTunes</span>\n
+        \       </li>\n        <li>\n          <a href=\"http://twitter.com/railscasts\"><img
+        alt=\"Twitter\" height=\"34\" src=\"/assets/icons/twitter-f0259ab802804e09139fb29f47678b2c.png\"
+        width=\"34\" /></a>\n          <span class=\"name\">follow on Twitter</span>\n
+        \       </li>\n        <li>\n          <a href=\"http://www.facebook.com/pages/railscasts/197415140659\"><img
+        alt=\"Facebook\" height=\"34\" src=\"/assets/icons/facebook-0ab869e74b54d9c58f33c1c75264d869.png\"
+        width=\"34\" /></a>\n          <span class=\"name\">follow on Facebook</span>\n
+        \       </li>\n        <li>\n          <a href=\"http://feeds.feedburner.com/railscasts\"><img
+        alt=\"Rss\" height=\"34\" src=\"/assets/icons/rss-04cb962054caa957a6fa3924c48594d8.png\"
+        width=\"34\" /></a>\n          <span class=\"name\">subscribe to RSS feed</span>\n
+        \       </li>\n      </ul>\n    </div>\n\n    <div id=\"nav_bar\">\n      <ul
+        class=\"nav horizontal\">\n        <li><a href=\"http://railscasts.com/\">Browse
+        Episodes</a></li>\n        <li><a href=\"/pro\">RailsCasts Pro</a></li>\n
+        \       <li><a href=\"/notifications\">Notifications</a></li>\n        <li><a
+        href=\"/about\">About</a></li>\n        <li><a href=\"/feedback\">Feedback</a></li>\n
+        \     </ul>\n      <form accept-charset=\"UTF-8\" action=\"http://railscasts.com/episodes\"
+        method=\"get\"><div style=\"margin:0;padding:0;display:inline\"><input name=\"utf8\"
+        type=\"hidden\" value=\"&#x2713;\" /></div>\n        <input id=\"search\"
+        name=\"search\" size=\"35\" type=\"text\" value=\"production\" />\n        <input
+        type=\"submit\" value=\"Search Episodes\" />\n</form>    </div>\n\n    <div
+        id=\"announcement_banner\">\n  <p>Please read for an updated status on RailsCasts:</p>\n\n
+        \ <p><a href=\"/announcements/12\">Learn more</a> or <a href=\"/announcements/12/hide\"
+        data-remote=\"true\">hide this</a></p>\n</div>\n\n\n\n    <div id=\"main\">\n\n
+        \     \n<div class=\"content\">\n  <div class=\"side\">\n    <div class=\"episode_views\">\n
+        \     View: <span class=\"view\"><img alt=\"Full\" height=\"10\" src=\"/assets/views/full-0788b5fc76d8a1d653004ad44fbf31e5.png\"
+        width=\"15\" /></span><span class=\"view\"><a href=\"/?search=production&amp;view=list\"
+        title=\"List View\"><img alt=\"List\" height=\"10\" src=\"/assets/views/list-f3b69d30cdb1ef80b12126c5dbd3fc7a.png\"
+        width=\"14\" /></a></span><span class=\"view\"><a href=\"/?search=production&amp;view=grid\"
+        title=\"Grid View\"><img alt=\"Grid\" height=\"10\" src=\"/assets/views/grid-119e56c5d75467c317c16c5c6fef94da.png\"
+        width=\"11\" /></a></span>\n    </div>\n    <div class=\"search_option\">\n
+        \     <h2>Types</h2>\n      <ul><li><a href=\"/?search=production&amp;type=free\">Free
+        Episodes</a></li><li><a href=\"/?search=production&amp;type=pro\">Pro Episodes</a></li><li><a
+        href=\"/?search=production&amp;type=revised\">Revised Episodes</a></li></ul>\n
+        \   </div>\n    <div class=\"search_option\">\n      <h2>Categories</h2>\n
+        \     <ul><li><a href=\"/?search=production&amp;tag_id=2\">Active Record</a></li><li><a
+        href=\"/?search=production&amp;tag_id=19\">Active Resource</a></li><li><a
+        href=\"/?search=production&amp;tag_id=3\">Active Support</a></li><li><a href=\"/?search=production&amp;tag_id=9\">Administration</a></li><li><a
+        href=\"/?search=production&amp;tag_id=11\">Ajax</a></li><li><a href=\"/?search=production&amp;tag_id=37\">APIs</a></li><li><a
+        href=\"/?search=production&amp;tag_id=25\">Authentication</a></li><li><a href=\"/?search=production&amp;tag_id=26\">Authorization</a></li><li><a
+        href=\"/?search=production&amp;tag_id=32\">Background Jobs</a></li><li><a
+        href=\"/?search=production&amp;tag_id=18\">Caching</a></li><li><a href=\"/?search=production&amp;tag_id=39\">Code
+        Walkthrough</a></li><li><a href=\"/?search=production&amp;tag_id=8\">Controllers</a></li><li><a
+        href=\"/?search=production&amp;tag_id=10\">Debugging</a></li><li><a href=\"/?search=production&amp;tag_id=21\">Deployment</a></li><li><a
+        href=\"/?search=production&amp;tag_id=23\">eCommerce</a></li><li><a href=\"/?search=production&amp;tag_id=15\">Forms</a></li><li><a
+        href=\"/?search=production&amp;tag_id=28\">Mailing</a></li><li><a href=\"/?search=production&amp;tag_id=16\">Models</a></li><li><a
+        href=\"/?search=production&amp;tag_id=1\">Performance</a></li><li><a href=\"/?search=production&amp;tag_id=13\">Plugins</a></li><li><a
+        href=\"/?search=production&amp;tag_id=33\">Production</a></li><li><a href=\"/?search=production&amp;tag_id=35\">Rack</a></li><li><a
+        href=\"/?search=production&amp;tag_id=17\">Rails 2.0</a></li><li><a href=\"/?search=production&amp;tag_id=20\">Rails
+        2.1</a></li><li><a href=\"/?search=production&amp;tag_id=22\">Rails 2.2</a></li><li><a
+        href=\"/?search=production&amp;tag_id=24\">Rails 2.3</a></li><li><a href=\"/?search=production&amp;tag_id=27\">Rails
+        3.0</a></li><li><a href=\"/?search=production&amp;tag_id=31\">Rails 3.1</a></li><li><a
+        href=\"/?search=production&amp;tag_id=34\">Rails 3.2</a></li><li><a href=\"/?search=production&amp;tag_id=38\">Rails
+        4.0</a></li><li><a href=\"/?search=production&amp;tag_id=6\">Refactoring</a></li><li><a
+        href=\"/?search=production&amp;tag_id=14\">Routing</a></li><li><a href=\"/?search=production&amp;tag_id=30\">Search</a></li><li><a
+        href=\"/?search=production&amp;tag_id=5\">Security</a></li><li><a href=\"/?search=production&amp;tag_id=7\">Testing</a></li><li><a
+        href=\"/?search=production&amp;tag_id=12\">Tools</a></li><li><a href=\"/?search=production&amp;tag_id=4\">Views</a></li></ul>\n
+        \   </div>\n    <div class=\"banner\">\n      <a href=\"https://www.digitalocean.com/?utm_source=railscasts.com\"><img
+        alt=\"Digital Ocean\" src=\"/static/sponsors/digitalocean.png\" /></a>\n    </div>\n
+        \ </div>\n\n  <div class=\"episodes\">\n      <div class=\"filters\">\n        <strong>Applied
+        Filters:</strong>\n        <span class=\"filter\">production <a href=\"/\">x</a></span>\n
+        \     </div>\n      <div class=\"full\"><div class=\"episode\" id=\"episode_463\">\n
+        \ <div class=\"screenshot\"><a href=\"/episodes/165-edit-multiple-revised\"><img
+        alt=\"Edit Multiple (revised)\" height=\"125\" src=\"/static/episodes/stills/165-edit-multiple-revised.png\"
+        width=\"200\" /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n
+        \     <span class=\"number\">Episode #165</span> &ndash;\n      <span class=\"published_at\">Feb
+        25, 2013</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/165-edit-multiple-revised?view=comments\">26
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/165-edit-multiple-revised\">Edit
+        Multiple (revised)</a>\n      \n    </h2>\n    <div class=\"description\">\n
+        \     Editing one record at a time can be tedious work. Here you will learn
+        three different ways to edit multiple records at once using checkboxes.\n
+        \     <span class=\"stats\">(15 minutes)</span>\n    </div>\n    <div class=\"watch\">\n
+        \       <a href=\"/pro\" class=\"pretty_button\">Subscribe to Watch Episode</a>\n
+        \   </div>\n  </div>\n  <div class=\"clear\"></div>\n</div><div class=\"episode\"
+        id=\"episode_400\">\n  <div class=\"screenshot\"><a href=\"/episodes/362-exporting-csv-and-excel\"><img
+        alt=\"Exporting CSV and Excel\" height=\"125\" src=\"/static/episodes/stills/362-exporting-csv-and-excel.png\"
+        width=\"200\" /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n
+        \     <span class=\"number\">Episode #362</span> &ndash;\n      <span class=\"published_at\">Jul
+        02, 2012</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/362-exporting-csv-and-excel?view=comments\">125
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/362-exporting-csv-and-excel\">Exporting
+        CSV and Excel</a>\n      \n    </h2>\n    <div class=\"description\">\n      As
+        you will see it is easy to add a CSV export option to Rails. Here I also show
+        how to export for Excel in a variety of formats.\n      <span class=\"stats\">(6
+        minutes)</span>\n    </div>\n    <div class=\"watch\">\n        <a href=\"/episodes/362-exporting-csv-and-excel?autoplay=true\"
+        class=\"pretty_button\">Watch Episode</a>\n        <a href=\"/episodes/362-exporting-csv-and-excel?view=asciicast\"
+        class=\"pretty_button read_button\">Read Episode</a>\n    </div>\n  </div>\n
+        \ <div class=\"clear\"></div>\n</div><div class=\"episode\" id=\"episode_392\">\n
+        \ <div class=\"screenshot\"><a href=\"/episodes/357-adding-ssl\"><img alt=\"Adding
+        SSL\" height=\"125\" src=\"/static/episodes/stills/357-adding-ssl.png\" width=\"200\"
+        /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n      <span
+        class=\"number\">Episode #357</span> &ndash;\n      <span class=\"published_at\">Jun
+        08, 2012</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/357-adding-ssl?view=comments\">37
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/357-adding-ssl\">Adding
+        SSL</a>\n      \n    </h2>\n    <div class=\"description\">\n      It is important
+        to protect a user&#x27;s private information with HTTPS. Here you will learn
+        how to get it working on your local machine, configure Rack SSL, install certificates
+        for production, and more.\n      <span class=\"stats\">(14 minutes)</span>\n
+        \   </div>\n    <div class=\"watch\">\n        <a href=\"/pro\" class=\"pretty_button\">Subscribe
+        to Watch Episode</a>\n    </div>\n  </div>\n  <div class=\"clear\"></div>\n</div><div
+        class=\"episode\" id=\"episode_458\">\n  <div class=\"screenshot\"><a href=\"/episodes/403-dynamic-forms\"><img
+        alt=\"Dynamic Forms\" height=\"125\" src=\"/static/episodes/stills/403-dynamic-forms.png\"
+        width=\"200\" /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n
+        \     <span class=\"number\">Episode #403</span> &ndash;\n      <span class=\"published_at\">Jan
+        27, 2013</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/403-dynamic-forms?view=comments\">51
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/403-dynamic-forms\">Dynamic
+        Forms</a>\n      \n    </h2>\n    <div class=\"description\">\n      Learn
+        how to add fields to a form dynamically using another form, complete with
+        custom field types. It&#x27;s fieldception!\n      <span class=\"stats\">(14
+        minutes)</span>\n    </div>\n    <div class=\"watch\">\n        <a href=\"/pro\"
+        class=\"pretty_button\">Subscribe to Watch Episode</a>\n    </div>\n  </div>\n
+        \ <div class=\"clear\"></div>\n</div><div class=\"episode\" id=\"episode_467\">\n
+        \ <div class=\"screenshot\"><a href=\"/episodes/22-eager-loading-revised\"><img
+        alt=\"Eager Loading (revised)\" height=\"125\" src=\"/static/episodes/stills/022-eager-loading-revised.png\"
+        width=\"200\" /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n
+        \     <span class=\"number\">Episode #22</span> &ndash;\n      <span class=\"published_at\">Mar
+        20, 2013</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/22-eager-loading-revised?view=comments\">21
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/22-eager-loading-revised\">Eager
+        Loading (revised)</a>\n      \n    </h2>\n    <div class=\"description\">\n
+        \     One way to improve performance is to reduce the number of database queries
+        through eager loading. Here I demonstrate this and compare the difference
+        between the &quot;includes&quot; and &quot;joins&quot; methods.\n      <span
+        class=\"stats\">(7 minutes)</span>\n    </div>\n    <div class=\"watch\">\n
+        \       <a href=\"/pro\" class=\"pretty_button\">Subscribe to Watch Episode</a>\n
+        \   </div>\n  </div>\n  <div class=\"clear\"></div>\n</div><div class=\"episode\"
+        id=\"episode_367\">\n  <div class=\"screenshot\"><a href=\"/episodes/340-datatables\"><img
+        alt=\"DataTables\" height=\"125\" src=\"/static/episodes/stills/340-datatables.png\"
+        width=\"200\" /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n
+        \     <span class=\"number\">Episode #340</span> &ndash;\n      <span class=\"published_at\">Apr
+        11, 2012</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/340-datatables?view=comments\">124
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/340-datatables\">DataTables</a>\n
+        \     \n    </h2>\n    <div class=\"description\">\n      DataTables makes
+        it easy to convert a plain HTML table into one with pagination, sorting, and
+        searching - all done with JavaScript and jQuery. Here I show how to set this
+        up and use a Rails application as the data source.\n      <span class=\"stats\">(9
+        minutes)</span>\n    </div>\n    <div class=\"watch\">\n        <a href=\"/episodes/340-datatables?autoplay=true\"
+        class=\"pretty_button\">Watch Episode</a>\n        <a href=\"/episodes/340-datatables?view=asciicast\"
+        class=\"pretty_button read_button\">Read Episode</a>\n    </div>\n  </div>\n
+        \ <div class=\"clear\"></div>\n</div><div class=\"episode\" id=\"episode_468\">\n
+        \ <div class=\"screenshot\"><a href=\"/episodes/411-performance-testing\"><img
+        alt=\"Performance Testing\" height=\"125\" src=\"/static/episodes/stills/411-performance-testing.png\"
+        width=\"200\" /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n
+        \     <span class=\"number\">Episode #411</span> &ndash;\n      <span class=\"published_at\">Mar
+        27, 2013</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/411-performance-testing?view=comments\">28
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/411-performance-testing\">Performance
+        Testing</a>\n      \n    </h2>\n    <div class=\"description\">\n      Learn
+        how to add performance tests that automate benchmark and profile reports.
+        Here I show how to find the bottlenecks to optimize a page. I also show how
+        to compile Ruby with gcdata to get information about memory usage.\n      <span
+        class=\"stats\">(16 minutes)</span>\n    </div>\n    <div class=\"watch\">\n
+        \       <a href=\"/pro\" class=\"pretty_button\">Subscribe to Watch Episode</a>\n
+        \   </div>\n  </div>\n  <div class=\"clear\"></div>\n</div><div class=\"episode\"
+        id=\"episode_453\">\n  <div class=\"screenshot\"><a href=\"/episodes/399-autocomplete-search-terms\"><img
+        alt=\"Autocomplete Search Terms\" height=\"125\" src=\"/static/episodes/stills/399-autocomplete-search-terms.png\"
+        width=\"200\" /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n
+        \     <span class=\"number\">Episode #399</span> &ndash;\n      <span class=\"published_at\">Dec
+        31, 2012</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/399-autocomplete-search-terms?view=comments\">22
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/399-autocomplete-search-terms\">Autocomplete
+        Search Terms</a>\n      \n    </h2>\n    <div class=\"description\">\n      Learn
+        how to add autocompletion to a search form and improve performance using Rack
+        middleware, caching and switching from SQL to Redis.\n      <span class=\"stats\">(17
+        minutes)</span>\n    </div>\n    <div class=\"watch\">\n        <a href=\"/pro\"
+        class=\"pretty_button\">Subscribe to Watch Episode</a>\n    </div>\n  </div>\n
+        \ <div class=\"clear\"></div>\n</div><div class=\"episode\" id=\"episode_281\">\n
+        \ <div class=\"screenshot\"><a href=\"/episodes/281-foreman\"><img alt=\"Foreman\"
+        height=\"125\" src=\"/static/episodes/stills/281-foreman.png\" width=\"200\"
+        /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n      <span
+        class=\"number\">Episode #281</span> &ndash;\n      <span class=\"published_at\">Aug
+        29, 2011</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/281-foreman?view=comments\">16
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/281-foreman\">Foreman</a>\n
+        \     \n    </h2>\n    <div class=\"description\">\n      Foreman can help
+        manage multiple processes that your Rails app depends upon when running in
+        development. It also provides an export command to move them into production.\n
+        \     <span class=\"stats\">(4 minutes)</span>\n    </div>\n    <div class=\"watch\">\n
+        \       <a href=\"/episodes/281-foreman?autoplay=true\" class=\"pretty_button\">Watch
+        Episode</a>\n        <a href=\"/episodes/281-foreman?view=asciicast\" class=\"pretty_button
+        read_button\">Read Episode</a>\n    </div>\n  </div>\n  <div class=\"clear\"></div>\n</div><div
+        class=\"episode\" id=\"episode_295\">\n  <div class=\"screenshot\"><a href=\"/episodes/292-virtual-machines-with-vagrant\"><img
+        alt=\"Virtual Machines with Vagrant\" height=\"125\" src=\"/static/episodes/stills/292-virtual-machines-with-vagrant.png\"
+        width=\"200\" /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n
+        \     <span class=\"number\">Episode #292</span> &ndash;\n      <span class=\"published_at\">Oct
+        24, 2011</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/292-virtual-machines-with-vagrant?view=comments\">56
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/292-virtual-machines-with-vagrant\">Virtual
+        Machines with Vagrant</a>\n      \n    </h2>\n    <div class=\"description\">\n
+        \     Vagrant allows you to run your Rails application and all of its dependencies
+        in a portable, sharable environment. Use for development, set it up as a staging
+        server, or experiment with a production setup.\n      <span class=\"stats\">(11
+        minutes)</span>\n    </div>\n    <div class=\"watch\">\n        <a href=\"/episodes/292-virtual-machines-with-vagrant?autoplay=true\"
+        class=\"pretty_button\">Watch Episode</a>\n        <a href=\"/episodes/292-virtual-machines-with-vagrant?view=asciicast\"
+        class=\"pretty_button read_button\">Read Episode</a>\n    </div>\n  </div>\n
+        \ <div class=\"clear\"></div>\n</div></div>\n      <div class=\"pagination\"><a
+        class=\"previous_page\" rel=\"prev start\" href=\"/?page=1&amp;search=production\">&lt;
+        Previous Page</a> <a rel=\"prev start\" href=\"/?page=1&amp;search=production\">1</a>
+        <em class=\"current\">2</em> <a rel=\"next\" href=\"/?page=3&amp;search=production\">3</a>
+        <a href=\"/?page=4&amp;search=production\">4</a> <a href=\"/?page=5&amp;search=production\">5</a>
+        <a href=\"/?page=6&amp;search=production\">6</a> <a href=\"/?page=7&amp;search=production\">7</a>
+        <a href=\"/?page=8&amp;search=production\">8</a> <a href=\"/?page=9&amp;search=production\">9</a>
+        <span class=\"gap\">&hellip;</span> <a href=\"/?page=14&amp;search=production\">14</a>
+        <a href=\"/?page=15&amp;search=production\">15</a> <a class=\"next_page\"
+        rel=\"next\" href=\"/?page=3&amp;search=production\">Next Page &gt;</a></div>\n
+        \ </div>\n</div>\n\n    </div>\n    <div id=\"footer\">\n      <div class=\"inner\">\n
+        \       &copy;2016 RailsCasts - <a href=\"/privacy\">Privacy Policy</a> -
+        Hosted by <a href=\"https://www.digitalocean.com/?utm_source=railscasts.com\">Digital
+        Ocean</a>\n      </div>\n    </div>\n\n      <!-- Google Analytics -->\n      <script
+        type=\"text/javascript\">\n        var _gaq = _gaq || [];\n        _gaq.push(['_setAccount',
+        'UA-7696481-1']);\n        _gaq.push(['_trackPageview']);\n\n        (function()
+        {\n          var ga = document.createElement('script'); ga.type = 'text/javascript';
+        ga.async = true;\n          ga.src = ('https:' == document.location.protocol
+        ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';\n          var
+        s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga,
+        s);\n        })();\n      </script>\n  </body>\n</html>\n"
+    http_version: 
+  recorded_at: Wed, 12 Oct 2016 22:30:56 GMT
+recorded_with: VCR 3.0.3
