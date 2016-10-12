@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 vcr_default = { cassette_name: "RailsCasts Root", record: :once }
-vcr_search = { cassette_name: "RailsCasts Search for Foundation", record: :once }
+vcr_search = { cassette_name: "RailsCasts Search", record: :once }
+vcr_page = { cassette_name: "RailsCasts Page", record: :once }
 
 describe RetroCasts::RailsCasts, vcr: vcr_default do
   let(:klass) { RetroCasts::RailsCasts }
@@ -28,15 +29,19 @@ describe RetroCasts::RailsCasts, vcr: vcr_default do
       end
 
       it 'sets a page attribute' do
-        expect(site.page).to eq(page)
+        expect(site.page).to be nil
       end
       
       it 'sets a search attribute' do
-        expect(site.search).to eq(search)
+        expect(site.search).to be nil
       end
 
       it 'sets an array of Episodes' do
         expect(site.episodes).to all(be_a(episode_klass))
+      end
+
+      it 'set a url attribute' do
+        expect(site.url).to_not be nil
       end
       
       it 'returns an instance of RetroCasts::RailsCasts' do
@@ -45,15 +50,15 @@ describe RetroCasts::RailsCasts, vcr: vcr_default do
 
       context 'given url paramters' do
         it 'sets a basic url' do
-          skip
+          expect(klass.new.url).to eq("http://www.railscasts.com/")
         end
 
-        it 'sets a search url' do
-          skip
+        it 'sets a search url', vcr: vcr_search do
+          expect(klass.new(search: "model caching").url).to eq("http://www.railscasts.com/episodes?search=model+caching")
         end
 
-        it 'sets a page url' do
-          skip
+        it 'sets a page url', vcr: vcr_page do
+          expect(klass.new(page: 2).url).to eq("http://www.railscasts.com/?page=2")
         end
       end
     end

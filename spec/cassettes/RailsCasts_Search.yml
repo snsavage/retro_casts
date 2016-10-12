@@ -1,0 +1,232 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.railscasts.com/episodes?search=model%20caching
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Server:
+      - nginx/1.4.7
+      Date:
+      - Wed, 12 Oct 2016 19:45:35 GMT
+      Content-Type:
+      - text/html
+      Content-Length:
+      - '184'
+      Connection:
+      - keep-alive
+      Location:
+      - http://railscasts.com/episodes?search=model+caching
+    body:
+      encoding: UTF-8
+      string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body
+        bgcolor=\"white\">\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx/1.4.7</center>\r\n</body>\r\n</html>\r\n"
+    http_version: 
+  recorded_at: Wed, 12 Oct 2016 19:45:35 GMT
+- request:
+    method: get
+    uri: http://railscasts.com/episodes?search=model%20caching
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.4.7
+      Date:
+      - Wed, 12 Oct 2016 19:45:35 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _railscasts_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWQ0YWJjMjEwOGRmY2I1YmJlNGE5MDA1OGU2Y2JiYjdlBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMUhUK1dTZkpzQmxwSlZYQlFNa3hwZUJpT0Jxc2pOdjZGclZYZXlEOUg4ZmM9BjsARg%3D%3D--6987d908fcb5c7a00ee62a923c6aba917b21fd57;
+        path=/; HttpOnly
+      X-Request-Id:
+      - 9f579c03f006bd8611e2c782ff72a8f4
+      X-Runtime:
+      - '0.145798'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: ASCII-8BIT
+      string: "<!DOCTYPE html>\n<html>\n<head>\n\t<meta http-equiv=\"Content-Type\"
+        content=\"text/html; charset=utf-8\" />\n    <title>Ruby on Rails Screencasts
+        - RailsCasts</title>\n    <meta name=\"description\" content=\"Short Ruby
+        on Rails screencasts containing tips, tricks and tutorials. Great for both
+        novice and experienced web developers.\" />\n    <meta name=\"keywords\" content=\"rails,
+        ruby on rails, screencasts, railscast, railscasts, tips, tricks, tutorials,
+        training, podcasts, programming\" />\n    <link rel=\"alternate\" type=\"application/rss+xml\"
+        title=\"Episodes RSS\" href=\"http://feeds.feedburner.com/railscasts\" />\n
+        \   <link href=\"/assets/application-f33052609391fcb2333fb8c560544e00.css\"
+        media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />\n    <script src=\"http://cdn.sublimevideo.net/js/3s7oes9q.js\"
+        type=\"text/javascript\"></script>\n    <script src=\"/assets/application-fe460ed6c034ee8c95a2a78f52d7a5d9.js\"
+        type=\"text/javascript\"></script>\n    <meta content=\"authenticity_token\"
+        name=\"csrf-param\" />\n<meta content=\"HT+WSfJsBlpJVXBQMkxpeBiOBqsjNv6FrVXeyD9H8fc=\"
+        name=\"csrf-token\" />\n    \n  </head>\n  <body>\n    <div id=\"top\">\n
+        \     <div class=\"logo\"><a href=\"/\"><img alt=\"RailsCasts - Ruby on Rails
+        Screencasts\" height=\"56\" src=\"/assets/railscasts_logo-7101a7cd0a48292a0c07276981855edb.png\"
+        width=\"423\" /></a></div>\n      <div class=\"user_nav\">\n          <a href=\"/login?return_to=http%3A%2F%2Frailscasts.com%2Fepisodes%3Fsearch%3Dmodel%2Bcaching\">Sign
+        in through GitHub</a>\n      </div>\n      <ul class=\"subscribe horizontal\">\n
+        \       <li>\n          <a href=\"http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=218282043\"><img
+        alt=\"Itunes\" height=\"34\" src=\"/assets/icons/itunes-ea9253b9b183d9788bef2cdfe326f38e.png\"
+        width=\"34\" /></a>\n          <span class=\"name\">watch on iTunes</span>\n
+        \       </li>\n        <li>\n          <a href=\"http://twitter.com/railscasts\"><img
+        alt=\"Twitter\" height=\"34\" src=\"/assets/icons/twitter-f0259ab802804e09139fb29f47678b2c.png\"
+        width=\"34\" /></a>\n          <span class=\"name\">follow on Twitter</span>\n
+        \       </li>\n        <li>\n          <a href=\"http://www.facebook.com/pages/railscasts/197415140659\"><img
+        alt=\"Facebook\" height=\"34\" src=\"/assets/icons/facebook-0ab869e74b54d9c58f33c1c75264d869.png\"
+        width=\"34\" /></a>\n          <span class=\"name\">follow on Facebook</span>\n
+        \       </li>\n        <li>\n          <a href=\"http://feeds.feedburner.com/railscasts\"><img
+        alt=\"Rss\" height=\"34\" src=\"/assets/icons/rss-04cb962054caa957a6fa3924c48594d8.png\"
+        width=\"34\" /></a>\n          <span class=\"name\">subscribe to RSS feed</span>\n
+        \       </li>\n      </ul>\n    </div>\n\n    <div id=\"nav_bar\">\n      <ul
+        class=\"nav horizontal\">\n        <li><a href=\"http://railscasts.com/\">Browse
+        Episodes</a></li>\n        <li><a href=\"/pro\">RailsCasts Pro</a></li>\n
+        \       <li><a href=\"/notifications\">Notifications</a></li>\n        <li><a
+        href=\"/about\">About</a></li>\n        <li><a href=\"/feedback\">Feedback</a></li>\n
+        \     </ul>\n      <form accept-charset=\"UTF-8\" action=\"http://railscasts.com/episodes\"
+        method=\"get\"><div style=\"margin:0;padding:0;display:inline\"><input name=\"utf8\"
+        type=\"hidden\" value=\"&#x2713;\" /></div>\n        <input id=\"search\"
+        name=\"search\" size=\"35\" type=\"text\" value=\"model caching\" />\n        <input
+        type=\"submit\" value=\"Search Episodes\" />\n</form>    </div>\n\n    <div
+        id=\"announcement_banner\">\n  <p>Please read for an updated status on RailsCasts:</p>\n\n
+        \ <p><a href=\"/announcements/12\">Learn more</a> or <a href=\"/announcements/12/hide\"
+        data-remote=\"true\">hide this</a></p>\n</div>\n\n\n\n    <div id=\"main\">\n\n
+        \     \n<div class=\"content\">\n  <div class=\"side\">\n    <div class=\"episode_views\">\n
+        \     View: <span class=\"view\"><img alt=\"Full\" height=\"10\" src=\"/assets/views/full-0788b5fc76d8a1d653004ad44fbf31e5.png\"
+        width=\"15\" /></span><span class=\"view\"><a href=\"/?search=model+caching&amp;view=list\"
+        title=\"List View\"><img alt=\"List\" height=\"10\" src=\"/assets/views/list-f3b69d30cdb1ef80b12126c5dbd3fc7a.png\"
+        width=\"14\" /></a></span><span class=\"view\"><a href=\"/?search=model+caching&amp;view=grid\"
+        title=\"Grid View\"><img alt=\"Grid\" height=\"10\" src=\"/assets/views/grid-119e56c5d75467c317c16c5c6fef94da.png\"
+        width=\"11\" /></a></span>\n    </div>\n    <div class=\"search_option\">\n
+        \     <h2>Types</h2>\n      <ul><li><a href=\"/?search=model+caching&amp;type=free\">Free
+        Episodes</a></li><li><a href=\"/?search=model+caching&amp;type=pro\">Pro Episodes</a></li><li><a
+        href=\"/?search=model+caching&amp;type=revised\">Revised Episodes</a></li></ul>\n
+        \   </div>\n    <div class=\"search_option\">\n      <h2>Categories</h2>\n
+        \     <ul><li><a href=\"/?search=model+caching&amp;tag_id=2\">Active Record</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=19\">Active Resource</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=3\">Active Support</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=9\">Administration</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=11\">Ajax</a></li><li><a href=\"/?search=model+caching&amp;tag_id=37\">APIs</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=25\">Authentication</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=26\">Authorization</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=32\">Background Jobs</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=18\">Caching</a></li><li><a href=\"/?search=model+caching&amp;tag_id=39\">Code
+        Walkthrough</a></li><li><a href=\"/?search=model+caching&amp;tag_id=8\">Controllers</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=10\">Debugging</a></li><li><a href=\"/?search=model+caching&amp;tag_id=21\">Deployment</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=23\">eCommerce</a></li><li><a href=\"/?search=model+caching&amp;tag_id=15\">Forms</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=28\">Mailing</a></li><li><a href=\"/?search=model+caching&amp;tag_id=16\">Models</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=1\">Performance</a></li><li><a href=\"/?search=model+caching&amp;tag_id=13\">Plugins</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=33\">Production</a></li><li><a href=\"/?search=model+caching&amp;tag_id=35\">Rack</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=17\">Rails 2.0</a></li><li><a href=\"/?search=model+caching&amp;tag_id=20\">Rails
+        2.1</a></li><li><a href=\"/?search=model+caching&amp;tag_id=22\">Rails 2.2</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=24\">Rails 2.3</a></li><li><a href=\"/?search=model+caching&amp;tag_id=27\">Rails
+        3.0</a></li><li><a href=\"/?search=model+caching&amp;tag_id=31\">Rails 3.1</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=34\">Rails 3.2</a></li><li><a href=\"/?search=model+caching&amp;tag_id=38\">Rails
+        4.0</a></li><li><a href=\"/?search=model+caching&amp;tag_id=6\">Refactoring</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=14\">Routing</a></li><li><a href=\"/?search=model+caching&amp;tag_id=30\">Search</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=5\">Security</a></li><li><a href=\"/?search=model+caching&amp;tag_id=7\">Testing</a></li><li><a
+        href=\"/?search=model+caching&amp;tag_id=12\">Tools</a></li><li><a href=\"/?search=model+caching&amp;tag_id=4\">Views</a></li></ul>\n
+        \   </div>\n    <div class=\"banner\">\n      <a href=\"https://www.digitalocean.com/?utm_source=railscasts.com\"><img
+        alt=\"Digital Ocean\" src=\"/static/sponsors/digitalocean.png\" /></a>\n    </div>\n
+        \ </div>\n\n  <div class=\"episodes\">\n      <div class=\"filters\">\n        <strong>Applied
+        Filters:</strong>\n        <span class=\"filter\">model caching <a href=\"/\">x</a></span>\n
+        \     </div>\n      <div class=\"full\"><div class=\"episode\" id=\"episode_474\">\n
+        \ <div class=\"screenshot\"><a href=\"/episodes/115-model-caching-revised\"><img
+        alt=\"Model Caching (revised)\" height=\"125\" src=\"/static/episodes/stills/115-model-caching-revised.png\"
+        width=\"200\" /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n
+        \     <span class=\"number\">Episode #115</span> &ndash;\n      <span class=\"published_at\">May
+        13, 2013</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/115-model-caching-revised?view=comments\">40
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/115-model-caching-revised\">Model
+        Caching (revised)</a>\n      \n    </h2>\n    <div class=\"description\">\n
+        \     Caching at a low level is a great option when the view is too dynamic
+        to cache and you need something flexible that can work anywhere in the application.
+        Here I show a variety of ways to use Rails.cache with Active Record.\n      <span
+        class=\"stats\">(12 minutes)</span>\n    </div>\n    <div class=\"watch\">\n
+        \       <a href=\"/pro\" class=\"pretty_button\">Subscribe to Watch Episode</a>\n
+        \   </div>\n  </div>\n  <div class=\"clear\"></div>\n</div><div class=\"episode\"
+        id=\"episode_397\">\n  <div class=\"screenshot\"><a href=\"/episodes/360-facebook-authentication\"><img
+        alt=\"Facebook Authentication\" height=\"125\" src=\"/static/episodes/stills/360-facebook-authentication.png\"
+        width=\"200\" /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n
+        \     <span class=\"number\">Episode #360</span> &ndash;\n      <span class=\"published_at\">Jun
+        25, 2012</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/360-facebook-authentication?view=comments\">122
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/360-facebook-authentication\">Facebook
+        Authentication</a>\n      \n    </h2>\n    <div class=\"description\">\n      This
+        will show how to create a new facebook application and configure it. Then
+        add some authentication with the omniauth-facebook gem and top it off with
+        a client-side authentication using the JavaScript SDK.\n      <span class=\"stats\">(12
+        minutes)</span>\n    </div>\n    <div class=\"watch\">\n        <a href=\"/episodes/360-facebook-authentication?autoplay=true\"
+        class=\"pretty_button\">Watch Episode</a>\n        <a href=\"/episodes/360-facebook-authentication?view=asciicast\"
+        class=\"pretty_button read_button\">Read Episode</a>\n    </div>\n  </div>\n
+        \ <div class=\"clear\"></div>\n</div><div class=\"episode\" id=\"episode_454\">\n
+        \ <div class=\"screenshot\"><a href=\"/episodes/400-what-s-new-in-rails-4\"><img
+        alt=\"What&#x27;s New in Rails 4\" height=\"125\" src=\"/static/episodes/stills/400-what-s-new-in-rails-4.png\"
+        width=\"200\" /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n
+        \     <span class=\"number\">Episode #400</span> &ndash;\n      <span class=\"published_at\">Jan
+        04, 2013</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/400-what-s-new-in-rails-4?view=comments\">42
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/400-what-s-new-in-rails-4\">What&#x27;s
+        New in Rails 4</a>\n      \n    </h2>\n    <div class=\"description\">\n      Rails
+        4.0 is still unfinished, but it is shaping up to become a great release. Here
+        I show how to setup a new Rails 4.0 (edge) application and walk through many
+        of its new features.\n      <span class=\"stats\">(20 minutes)</span>\n    </div>\n
+        \   <div class=\"watch\">\n        <a href=\"/episodes/400-what-s-new-in-rails-4?autoplay=true\"
+        class=\"pretty_button\">Watch Episode</a>\n        <a href=\"/episodes/400-what-s-new-in-rails-4?view=asciicast\"
+        class=\"pretty_button read_button\">Read Episode</a>\n    </div>\n  </div>\n
+        \ <div class=\"clear\"></div>\n</div><div class=\"episode\" id=\"episode_115\">\n
+        \ <div class=\"screenshot\"><a href=\"/episodes/115-caching-in-rails-2-1\"><img
+        alt=\"Caching in Rails 2.1\" height=\"125\" src=\"/static/episodes/stills/115-caching-in-rails-2-1.png\"
+        width=\"200\" /></a></div>\n  <div class=\"main\">\n    <div class=\"info\">\n
+        \     <span class=\"number\">Episode #115</span> &ndash;\n      <span class=\"published_at\">Jun
+        23, 2008</span> &ndash;\n      <span class=\"comments\"><a href=\"/episodes/115-caching-in-rails-2-1?view=comments\">45
+        comments</a></span>\n    </div>\n    <h2>\n      <a href=\"/episodes/115-caching-in-rails-2-1\">Caching
+        in Rails 2.1</a>\n      \n    </h2>\n    <div class=\"description\">\n      Rails
+        2.1 brings some new caching features which makes it very easy to cache any
+        values including models. See how in this episode.\n      <span class=\"stats\">(8
+        minutes)</span>\n    </div>\n    <div class=\"watch\">\n        <a href=\"/episodes/115-caching-in-rails-2-1?autoplay=true\"
+        class=\"pretty_button\">Watch Episode</a>\n        \n    </div>\n  </div>\n
+        \ <div class=\"clear\"></div>\n</div></div>\n      \n  </div>\n</div>\n\n
+        \   </div>\n    <div id=\"footer\">\n      <div class=\"inner\">\n        &copy;2016
+        RailsCasts - <a href=\"/privacy\">Privacy Policy</a> - Hosted by <a href=\"https://www.digitalocean.com/?utm_source=railscasts.com\">Digital
+        Ocean</a>\n      </div>\n    </div>\n\n      <!-- Google Analytics -->\n      <script
+        type=\"text/javascript\">\n        var _gaq = _gaq || [];\n        _gaq.push(['_setAccount',
+        'UA-7696481-1']);\n        _gaq.push(['_trackPageview']);\n\n        (function()
+        {\n          var ga = document.createElement('script'); ga.type = 'text/javascript';
+        ga.async = true;\n          ga.src = ('https:' == document.location.protocol
+        ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';\n          var
+        s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga,
+        s);\n        })();\n      </script>\n  </body>\n</html>\n"
+    http_version: 
+  recorded_at: Wed, 12 Oct 2016 19:45:35 GMT
+recorded_with: VCR 3.0.3
