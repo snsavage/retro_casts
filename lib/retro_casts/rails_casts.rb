@@ -1,20 +1,22 @@
 module RetroCasts
   class RailsCasts
-    attr_reader :host, :filter, :episodes, :page, :search, :url
+    attr_reader :host, :filter, :episodes, :page, :search, :url, :website
 
     def initialize(host: 'http://www.railscasts.com',
                    filter: '.episode',
                    page: 1,
-                   search: nil)
+                   search: nil,
+                   website: RetroCasts::Website.new)
 
       @host = host
       @filter = filter
       @page = page
       @search = search
-      
+      @website = website
+
       @url = build_url
 
-      nodeset = RetroCasts::Website.get_list(url, filter)
+      nodeset = website.get_list(url, filter)
       @episodes = parse_episodes(nodeset)
     end
 
@@ -31,18 +33,20 @@ module RetroCasts
     end
 
     def get_search(search_term)
-      RetroCasts::RailsCasts.new(search: search_term)
+      RetroCasts::RailsCasts.new(search: search_term, website: website)
     end
 
     def next_page
       RetroCasts::RailsCasts.new(search: search,
-                                 page: page + 1)
+                                 page: page + 1,
+                                 website: website)
     end
 
     def prev_page
       if page > 1
         RetroCasts::RailsCasts.new(search: search,
-                                   page: page - 1)
+                                   page: page - 1,
+                                   website: website)
       else
         self
       end
@@ -63,8 +67,10 @@ module RetroCasts
         "#{host}\/episodes?#{query}"
       elsif attributes.has_key?(:page)
         "#{host}\/?#{query}"
-      else
+      elsif host != ""
         "#{host}\/"
+      else
+        ""
       end
     end
 

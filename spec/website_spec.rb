@@ -3,7 +3,7 @@ require 'spec_helper'
 vcr_options = { cassette_name: "RailsCasts Root", record: :once }
 
 describe RetroCasts::Website, vcr: vcr_options do
-  let(:klass) { RetroCasts::Website }
+  let(:website) { RetroCasts::Website.new }
 
   describe '.get_list' do
     context 'when given a valid url' do
@@ -11,14 +11,19 @@ describe RetroCasts::Website, vcr: vcr_options do
 
       context 'and a valid filter' do
         it 'returns a Nokogiri::XML::NodeSet' do
-          site = klass.get_list(url, '.episode')
+          site = website.get_list(url, '.episode')
           expect(site).to be_a(Nokogiri::XML::NodeSet)
+        end
+        
+        it 'adds the url to the site cache' do
+          site = website.get_list(url, '.episode')
+          expect(website.site_cache.keys).to include(url)
         end
       end
 
       context 'and an invalid filter' do
         it 'returns a Nullwebsite' do
-          site = klass.get_list(url, '')
+          site = website.get_list(url, '')
           expect(site).to be_a(RetroCasts::NullWebsite)
         end
       end
@@ -26,7 +31,7 @@ describe RetroCasts::Website, vcr: vcr_options do
 
     context 'when given an invalid url' do
       it 'returns a NullWebsite' do
-        site = klass.get_list('', '')
+        site = website.get_list('', '')
         expect(site).to be_a(RetroCasts::NullWebsite)
       end
     end

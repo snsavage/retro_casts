@@ -1,12 +1,29 @@
 module RetroCasts
-  module Website
-    def self.get_list(url, filter)
-      site = open_url(url)
-      css(site, filter)
+  class Website
+
+    attr_reader :site_cache
+
+    def initialize(cache = {})
+      @site_cache = cache
+    end
+
+    def get_list(url, filter)
+      if site_cache.has_key?(url)
+        site_cache[url]
+      else
+        site = open_url(url)
+        page = css(site, filter)
+        add_to_cache(url, page)
+        page
+      end
     end
 
     private
-    def self.open_url(url)
+    def add_to_cache(url, page)
+      site_cache[url] = page
+    end
+
+    def open_url(url)
       begin
         open(url)
       rescue Errno::ENOENT
@@ -14,7 +31,7 @@ module RetroCasts
       end
     end
 
-    def self.css(site, filter)
+    def css(site, filter)
       begin
         Nokogiri::HTML(site).css(filter)
       rescue Nokogiri::CSS::SyntaxError
