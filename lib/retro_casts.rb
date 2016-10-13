@@ -12,6 +12,7 @@ require 'pry'
 
 module RetroCasts
   def self.start(klass: RetroCasts::RailsCasts)
+    CLI.retro_welcome
     CLI.welcome
 
     if !ARGV.empty?
