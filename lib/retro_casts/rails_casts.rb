@@ -52,6 +52,21 @@ module RetroCasts
       end
     end
 
+    def list_episodes
+      episodes.each_with_index do |episode, i|
+        RetroCasts::CLI.display "#{i +1}. #{episode.title} - #{episode.date}"
+      end
+    end
+
+    def show_episode_detail(episode_number)
+      current_episode = episode(episode_number)
+      [:title, :number, :date, :length, :description, :link].each do |attribute|
+        label = attribute.to_s.capitalize
+        message = "#{label}: #{current_episode.send(attribute)}"
+        RetroCasts::CLI.display(message)
+      end
+    end
+
     private
     def build_url
       attributes = {}

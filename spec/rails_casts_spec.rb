@@ -113,7 +113,7 @@ describe RetroCasts::RailsCasts, vcr: vcr_default do
     end
   end
 
-  describe '#search' do
+  describe '#get_search' do
     let(:search_site) {
       VCR.use_cassette("RailsCasts Search") do
         site.get_search("model caching")
@@ -126,6 +126,61 @@ describe RetroCasts::RailsCasts, vcr: vcr_default do
 
     it 'search site has a list of 9 episodes' do
       expect(search_site.episodes.length).to eq 4
+    end
+  end
+
+  describe '#next_page' do
+    skip
+  end
+
+  describe '#prev_page' do
+    skip
+  end
+
+  describe '#list_episodes' do
+    let(:regex) { /\d+.[\w\s\(\)]+-\s\w{3}\s\d+,\s\d{4}/ }
+    let(:cli) { RetroCasts::CLI }
+
+    context 'with a list of episodes' do
+      it 'should display a list number and episode title' do
+        expect(cli).to receive(:display).with(regex).exactly(10).times
+        site.list_episodes
+      end
+    end
+
+    context 'the first episode' do
+      it 'should display' do
+        expect(cli).to receive(:display).with("1. Foundation - Jun 16, 2013").at_least(1).times
+        allow(cli).to receive(:display).at_least(:once)
+        site.list_episodes
+      end
+    end
+
+    context 'with an empty list of episodes' do
+      it 'should display No Episodes Found' do
+        expect(cli).to receive(:display).with(/No Episodes Found/)
+        null_site = RetroCasts::RailsCasts.new(host: '', filter: '')
+        null_site.list_episodes
+      end
+    end
+  end
+
+  describe '#show_episode_detail' do
+    context 'with an episode, it displays episode details' do
+      let(:episode_number) { 1 }
+      let(:episode) { site.episode(episode_number) }
+      let(:cli) { RetroCasts::CLI }
+
+      it 'calls display for each episode attribute' do
+        expect(cli).to receive(:display).with("Title: #{episode.title}")
+        expect(cli).to receive(:display).with("Number: #{episode.number}")
+        expect(cli).to receive(:display).with("Date: #{episode.date}")
+        expect(cli).to receive(:display).with("Length: #{episode.length}")
+        expect(cli).to receive(:display).with("Link: #{episode.link}")
+        expect(cli).to receive(:display).with("Description: #{episode.description}")
+
+        site.show_episode_detail(episode_number)
+      end
     end
   end
 end

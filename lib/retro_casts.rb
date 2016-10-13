@@ -11,19 +11,19 @@ require "retro_casts/CLI"
 require 'pry'
 
 module RetroCasts
-  def self.start
+  def self.start(klass: RetroCasts::RailsCasts)
     CLI.welcome
 
     if !ARGV.empty?
-      site = RetroCasts::RailsCasts.new(search: ARGV.join(" "))
+      site = klass.new(search: ARGV.join(" "))
     else
-      site ||= RetroCasts::RailsCasts.new
+      site ||= klass.new
     end
 
     message = ""
 
     loop do
-      CLI.list_episodes(site.episodes)
+      site.list_episodes
 
       puts "*** #{message} ***" unless message == ""
       message = ""
@@ -37,7 +37,7 @@ module RetroCasts
       if integer?(command) && site.episode?(command.to_i)
         loop do
           episode = site.episode(command.to_i)
-          CLI.show_episode_detail(episode)
+          site.show_episode_detail(command.to_i)
 
           puts "Type 'exit' to go back or 'open' to open the episode in your browser."
           print ">"
