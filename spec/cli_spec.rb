@@ -38,43 +38,6 @@ describe RetroCasts::CLI, vcr: vcr_options do
     end
   end
 
-  describe '.get_episode' do
-    it 'takes an integer an returns a corresponding episode' do
-      episode = episodes.first
-      expect(klass.get_episode(1, episodes)).to eq(episode)
-    end
-
-    context 'with an out of range list_number' do
-      it 'returns an invalid selection prompt to number range' do
-        message = "Invalid selection, please choose a number " +
-           "between 1 and #{episodes.length}."
-        expect(klass).to receive(:display).with(message).once
-        klass.get_episode(20, episodes)
-      end
-
-      it 'returns an invalid selection prompt to number range' do
-        message = "Invalid selection, please choose a number " +
-           "between 1 and #{episodes.length}."
-        expect(klass).to receive(:display).with(message).once
-        klass.get_episode(-100, episodes)
-      end
-    end
-  end
-
-  describe '.valid_episode_number' do
-    context 'when provided a valid number it returns an episode number' do
-      it { expect(klass.valid_episode_number("1", episodes.length)).to eq(0) }
-    end
-
-    context 'when provided an invalid number it returns false' do
-      it { expect(klass.valid_episode_number("100", episodes)).to be false }
-      it { expect(klass.valid_episode_number("-1", episodes)).to be false }
-      it { expect(klass.valid_episode_number("0", episodes)).to be false }
-      it { expect(klass.valid_episode_number("exit", episodes)).to be false }
-    end
-  end
-
-
   describe '.show_episode_detail' do
     context 'with an episode, it displays episode details' do
       let(:episode) {episodes.first}
