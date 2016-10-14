@@ -54,7 +54,7 @@ module RetroCasts
 
     def list_episodes
       episodes.each_with_index do |episode, i|
-        RetroCasts::CLI.display "#{i +1}. #{episode.title} - #{episode.date}"
+        RetroCasts.display "#{i +1}. #{episode.title} - #{episode.date}"
       end
     end
 

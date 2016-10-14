@@ -9,7 +9,7 @@ module RetroCasts
     end
 
     def each_with_index
-      RetroCasts::CLI.display("No Episodes Found")
+      RetroCasts.display("No Episodes Found")
     end
   end
 end

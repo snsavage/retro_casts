@@ -139,26 +139,25 @@ describe RetroCasts::RailsCasts, vcr: vcr_default do
 
   describe '#list_episodes' do
     let(:regex) { /\d+.[\w\s\(\)]+-\s\w{3}\s\d+,\s\d{4}/ }
-    let(:cli) { RetroCasts::CLI }
 
     context 'with a list of episodes' do
       it 'should display a list number and episode title' do
-        expect(cli).to receive(:display).with(regex).exactly(10).times
+        expect(RetroCasts).to receive(:display).with(regex).exactly(10).times
         site.list_episodes
       end
     end
 
     context 'the first episode' do
       it 'should display' do
-        expect(cli).to receive(:display).with("1. Foundation - Jun 16, 2013").at_least(1).times
-        allow(cli).to receive(:display).at_least(:once)
+        expect(RetroCasts).to receive(:display).with("1. Foundation - Jun 16, 2013").at_least(1).times
+        allow(RetroCasts).to receive(:display).at_least(:once)
         site.list_episodes
       end
     end
 
     context 'with an empty list of episodes' do
       it 'should display No Episodes Found' do
-        expect(cli).to receive(:display).with(/No Episodes Found/)
+        expect(RetroCasts).to receive(:display).with(/No Episodes Found/)
         null_site = RetroCasts::RailsCasts.new(host: '', filter: '')
         null_site.list_episodes
       end

@@ -11,9 +11,11 @@ require "retro_casts/CLI"
 require 'pry'
 
 module RetroCasts
+  extend CLI
+
   def self.start(klass: RetroCasts::RailsCasts)
-    CLI.retro_welcome
-    CLI.welcome
+    retro_welcome
+    welcome
 
     if !ARGV.empty?
       site = klass.new(search: ARGV.join(" "))
@@ -24,6 +26,7 @@ module RetroCasts
     message = ""
 
     loop do
+      display("#" * 50)
       site.list_episodes
 
       puts "*** #{message} ***" unless message == ""

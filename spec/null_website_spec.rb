@@ -17,7 +17,7 @@ describe RetroCasts::NullWebsite do
 
   describe '.each_with_index' do
     it "calling list_episodes on NullWebsite instance displays message" do
-      expect(RetroCasts::CLI)
+      expect(RetroCasts)
         .to receive(:display)
         .with(/No Episodes Found/)
         RetroCasts::RailsCasts.new(host: '', filter: '').list_episodes
@@ -25,7 +25,7 @@ describe RetroCasts::NullWebsite do
 
     it "calling list_episodes on NullWebsite instance displays message" do
       skip
-      expect(RetroCasts::CLI)
+      expect(RetroCasts)
         .to receive(:display)
         .with(/No Episodes Found/)
         RetroCasts::RailsCasts.new(host: '').list_episodes

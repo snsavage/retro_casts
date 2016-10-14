@@ -3,7 +3,7 @@ require 'spec_helper'
 vcr_options = { cassette_name: "RailsCasts Root", record: :once }
 
 describe RetroCasts::CLI, vcr: vcr_options do
-  let(:klass) { RetroCasts::CLI }
+  let(:klass) { RetroCasts }
   let(:episodes) { RetroCasts::RailsCasts.new.episodes }
 
   describe '.welcome' do
