@@ -168,15 +168,14 @@ describe RetroCasts::RailsCasts, vcr: vcr_default do
     context 'with an episode, it displays episode details' do
       let(:episode_number) { 1 }
       let(:episode) { site.episode(episode_number) }
-      let(:cli) { RetroCasts::CLI }
 
       it 'calls display for each episode attribute' do
-        expect(cli).to receive(:display).with("Title: #{episode.title}")
-        expect(cli).to receive(:display).with("Number: #{episode.number}")
-        expect(cli).to receive(:display).with("Date: #{episode.date}")
-        expect(cli).to receive(:display).with("Length: #{episode.length}")
-        expect(cli).to receive(:display).with("Link: #{episode.link}")
-        expect(cli).to receive(:display).with("Description: #{episode.description}")
+        expect(RetroCasts).to receive(:display).with("Title: #{episode.title}")
+        expect(RetroCasts).to receive(:display).with("Number: #{episode.number}")
+        expect(RetroCasts).to receive(:display).with("Date: #{episode.date}")
+        expect(RetroCasts).to receive(:display).with("Length: #{episode.length}")
+        expect(RetroCasts).to receive(:display).with("Link: #{episode.link}")
+        expect(RetroCasts).to receive(:display).with("Description: #{episode.description}")
 
         site.show_episode_detail(episode_number)
       end

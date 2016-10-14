@@ -63,7 +63,7 @@ module RetroCasts
       [:title, :number, :date, :length, :description, :link].each do |attribute|
         label = attribute.to_s.capitalize
         message = "#{label}: #{current_episode.send(attribute)}"
-        RetroCasts::CLI.display(message)
+        RetroCasts.display(message)
       end
     end
 
