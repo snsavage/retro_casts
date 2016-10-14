@@ -33,6 +33,7 @@ module RetroCasts
       message = ""
 
       puts "Please select an option..."
+      puts "Episodes: 1 to #{site.episodes.length}  | home | search {search terms} | next | back | exit"
       print ">"
       input = $stdin.gets.chomp.split(" ")
       command = input.shift
@@ -43,11 +44,11 @@ module RetroCasts
           episode = site.episode(command.to_i)
           site.show_episode_detail(command.to_i)
 
-          puts "Type 'exit' to go back or 'open' to open the episode in your browser."
+          puts "Type 'back' to go back or 'open' to open the episode in your browser."
           print ">"
 
           case $stdin.gets.chomp.downcase
-          when "exit"
+          when "back"
             break
           when "open"
             `open #{site.host}/#{episode.link}`
