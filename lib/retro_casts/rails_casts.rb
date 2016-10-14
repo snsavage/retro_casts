@@ -33,20 +33,20 @@ module RetroCasts
     end
 
     def get_search(search_term)
-      RetroCasts::RailsCasts.new(search: search_term, website: website)
+      self.class.new(search: search_term, website: website)
     end
 
     def next_page
-      RetroCasts::RailsCasts.new(search: search,
-                                 page: page + 1,
-                                 website: website)
+      self.class.new(search: search,
+                     page: page + 1,
+                     website: website)
     end
 
     def prev_page
       if page > 1
-        RetroCasts::RailsCasts.new(search: search,
-                                   page: page - 1,
-                                   website: website)
+        self.class.new(search: search,
+                       page: page - 1,
+                       website: website)
       else
         self
       end
