@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["snsavage@gmail.com"]
 
   spec.summary       = %q{RetroCasts proivdes RailsCasts.com metadata in a command-line interface.}
-  spec.description   = %q{RetroCasts provides a command-line interface for access to metdata from RailsCasts.com.  Features include...}
+  spec.description   = %q{RetroCasts provides a command-line interface for access to metdata from RailsCasts.com.  Features include episode lists, episode details, and search.}
   spec.homepage      = "https://github.com/snsavage/retro_casts"
   spec.license       = "MIT"
 
