@@ -53,7 +53,7 @@ module RetroCasts
           when "open"
             `open #{site.host}/#{episode.link}`
           else
-            puts "Please choose 'exit' or 'open'."
+            puts "Please choose 'back' or 'open'."
             print ">"
           end
         end
