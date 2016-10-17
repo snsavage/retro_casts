@@ -10,7 +10,9 @@
   | | \ \  __/ |_| | | (_) | |___| (_| \__ \ |_\__ \
   |_|  \_\___|\__|_|  \___/ \_____\__,_|___/\__|___/
 ```
-The RetroCasts gem provides access to [RailsCasts.com](http://railscasts.com) through a command line utility.  The utility allows browsing and searching of RailsCasts episodes with the option to view a description of the episode and to open the episode in your web browser.  See usage below for more detail.  
+The RetroCasts gem provides access to [RailsCasts.com](http://railscasts.com) through a command line utility.  The utility allows browsing and searching of RailsCasts episodes with the option to view a description of the episode and to open the episode in your web browser.  See usage below for more detail.
+
+*RetroCasts was created as a project for  the Flatiron School's Online Web Developer program.  You can find more information here: [learn.co/with/snavage](http://learn.co/with/snavage).  Or to find out more about the making of RetroCasts checkout my post at [snsavage.com](http://www.snsavage.com/blog/2016/the_making_of_retrocasts.html)* 
 
 ## Installation
 
