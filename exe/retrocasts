@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby
 
-require 'retro_casts'
+require_relative '../lib/retro_casts'
 
 RetroCasts.start
 

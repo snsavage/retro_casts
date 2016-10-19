@@ -96,42 +96,20 @@ module RetroCasts
     end
 
     def create_episode(node)
-      episode = Episode.new
-      episode.title = title(node)
-      episode.number = number(node)
-      episode.date = date(node)
-      episode.length = length(node)
-      episode.link = link(node)
-      episode.description = description(node)
-      return episode
+      Episode.new({
+        title: node.css(".main h2 a").text,
+        number: extract_integer(node.css(".number")),
+        date: Date.parse(node.css(".published_at").text),
+        length: extract_integer(node.css(".stats")),
+        link: node.css(".screenshot a").first.attributes["href"].value,
+        description: node.css(".description")
+          .text.sub(/\(\d+ minutes\)/, '')
+          .delete("\n").strip
+      })
     end
 
-    def title(node)
-      node.css(".main h2 a").text
-    end
-
-    def number(node)
-      text = node.css(".number").text
-      text.match(/\d+/).to_s.to_i
-    end
-
-    def date(node)
-      text = node.css(".published_at").text
-      Date.parse(text)
-    end
-
-    def length(node)
-      text = node.css(".stats").text
-      text.match(/\d+/).to_s.to_i
-    end
-
-    def link(node)
-      node.css(".screenshot a").first.attributes["href"].value
-    end
-
-    def description(node)
-      text = node.css(".description").text
-      text.sub(/\(\d+ minutes\)/, '').delete("\n").strip
+    def extract_integer(data)
+      data.text.match(/\d+/).to_s.to_i
     end
   end
 end

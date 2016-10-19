@@ -1,12 +1,12 @@
 require "nokogiri"
 require "open-uri"
 
-require "retro_casts/version"
-require "retro_casts/rails_casts"
-require "retro_casts/episode"
-require "retro_casts/website"
-require "retro_casts/null_website"
-require "retro_casts/CLI"
+require_relative "./retro_casts/version"
+require_relative "./retro_casts/rails_casts"
+require_relative "./retro_casts/episode"
+require_relative "./retro_casts/website"
+require_relative "./retro_casts/null_website"
+require_relative "./retro_casts/CLI"
 
 require 'pry'
 
