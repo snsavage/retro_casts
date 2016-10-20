@@ -102,7 +102,7 @@ module RetroCasts
         number: extract_integer(node.css(".number")),
         date: Date.parse(node.css(".published_at").text),
         length: extract_integer(node.css(".stats")),
-        link: node.css(".screenshot a").first.attributes["href"].value,
+        link: host + node.css(".screenshot a").first.attributes["href"].value,
         description: node.css(".description")
           .text.sub(/\(\d+ minutes\)/, '')
           .delete("\n").strip
