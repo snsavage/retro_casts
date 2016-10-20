@@ -14,10 +14,7 @@ module RetroCasts
       @search = search
       @website = website
 
-      @url = build_url
-
-      nodeset = website.get_list(url, filter)
-      @episodes = parse_episodes(nodeset)
+      update
     end
 
     def episode?(number)
@@ -33,20 +30,19 @@ module RetroCasts
     end
 
     def get_search(search_term)
-      self.class.new(search: search_term, website: website)
+      @search = search_term
+      update
     end
 
     def next_page
-      self.class.new(search: search,
-                     page: page + 1,
-                     website: website)
+      @page += 1
+      update
     end
 
     def prev_page
       if page > 1
-        self.class.new(search: search,
-                       page: page - 1,
-                       website: website)
+        @page -= 1
+        update
       else
         self
       end
@@ -68,6 +64,11 @@ module RetroCasts
     end
 
     private
+    def update
+      @url = build_url
+      @episodes = parse_episodes(website.get_list(url, filter))
+    end
+
     def build_url
       attributes = {}
 

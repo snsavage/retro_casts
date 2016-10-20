@@ -44,10 +44,12 @@ module RetroCasts
           episode = site.episode(command.to_i)
           site.show_episode_detail(command.to_i)
 
-          puts "Type 'back' to go back or 'open' to open the episode in your browser."
+          puts "Type 'back' to go back, 'open' to open the episode in your browser, or 'exit' to exit."
           print ">"
 
           case $stdin.gets.chomp.downcase
+          when "exit"
+            break
           when "back"
             break
           when "open"
@@ -63,16 +65,16 @@ module RetroCasts
         case command.downcase
         when "home"
           puts "Going back to the homepage..."
-          site = site.get_search(nil)
+          site.get_search(nil)
         when "search"
           puts "Searching for \"#{argument}\"..."
-          site = site.get_search(argument)
+          site.get_search(argument)
         when "next"
           puts "Opening page #{site.page + 1}..."
-          site = site.next_page
+          site.next_page
         when "back"
           puts "Opening page #{site.page - 1}..."
-          site = site.prev_page
+          site.prev_page
         when "exit"
           break
         else
