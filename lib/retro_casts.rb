@@ -24,8 +24,11 @@ module RetroCasts
     end
 
     message = ""
+    exit_all_loops = false
 
     loop do
+      break if exit_all_loops
+
       display("#" * 50)
       site.list_episodes
 
@@ -49,11 +52,12 @@ module RetroCasts
 
           case $stdin.gets.chomp.downcase
           when "exit"
+            exit_all_loops = true
             break
           when "back"
             break
           when "open"
-            `open #{site.host}/#{episode.link}`
+            `open #{episode.link}`
           else
             puts "Please choose 'back' or 'open'."
             print ">"
